@@ -1,0 +1,296 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PortalCliente.Core.Enum;
+
+<style>
+
+    .m-l-15 {
+        margin-left: 15px;
+    }
+
+    .tabla-aprobador {
+        max-height: 74px;
+        margin: 0;
+    }
+
+    .top-aprobador {
+        top: 280px !important;
+    }
+
+    .captura {
+        padding-top: 10px;
+    }
+
+    /**Para edicion*/
+    .input-edit input:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .input-edit textarea:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled select::-ms-expand {
+        display: none;
+    }
+    /****************************/
+</style>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Captura de cliente</h1>
+    </div>
+</div>
+
+<div style="margin-bottom:10px">
+    @*{Html.RenderAction("BusquedaPrecliente", "Notificacion", new { banderilla = '0' });}*@
+    @{Html.RenderAction("BusquedaCliente", "Notificacion", new { GrupoEstatus = GrupoEstatus.CapturaCliente });}
+</div>
+<div data-ng-controller="capturaClienteCtrl">
+
+    @{Html.RenderPartial("_ListaAprobador");}
+
+    <div class="row menu-sections no-margin-lateral" style="margin-top: 15px;">
+        <div class="btn-operaciones-cont">
+            <button id="pasot1" class="btn-operaciones active" onclick="showPasoCaptura(1)">
+                <i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Registro cliente
+            </button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="pasot2" class="btn-operaciones" onclick="showPasoCaptura(2)">
+                <i id="icon-t1-2" class="fas fa-table"></i> Tabulador
+            </button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="pasot4" class="btn-operaciones last" onclick="showPasoCaptura(4)"><i id="icon-t1-4" class="fas fa-list-ol"></i> Procedimiento de operación</button>
+        </div>
+    </div>
+
+    <div data-ng-controller="capturaClienteCtrl" data-ng-init="init(1)">
+        <div id="cont-pasot1" class="cont-datos captura" data-ng-class="classTopAprobador">
+            <div id="cont-paso-in1" style="overflow: hidden;position: relative;">
+                @{Html.RenderPartial("_DatosCliente");}
+
+                @{Html.RenderPartial("_DatosContacto");}
+
+                @{Html.RenderPartial("_DatosBancarios");}
+
+                @{Html.RenderPartial("_DatosInfAdicional");}
+
+                @{Html.RenderPartial("_DatosCuestionario");}
+
+                @{Html.RenderPartial("_DatosDocumentos");}
+
+                <div class="col-sm-12 text-right">
+                    <button id="terminar2-1" class="btn btn-primary"> Terminar</button>
+                    <button class="btn btn-primary"
+                            data-ng-class="inputDisable ? '' : 'm-l-15'"
+                            data-ng-hide="inputDisable"
+                            data-ng-click="guardarEdicion()">
+                        Guardar
+                    </button>
+                </div>
+                <br><br><br>
+            </div>
+
+        </div>
+        <div id="verdocumentos" class="popup-documento">
+            <i class="fas fa-times btn-close close-documento"></i>
+            <iframe id="frameDocumentos" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento2" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame2" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento3" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame3" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento4" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame4" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento5" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame5" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento6" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame6" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento7" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame7" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento8" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame8" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento9" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame9" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+        <div id="ver-documento10" class="popup-documento">
+            <i class="fas fa-times btn-close close-doc"></i>
+            <iframe id="frame10" style="border: none;width: 100%;height: 100%"></iframe>
+        </div>
+
+        <div id="popup-confirma" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensaje-confirma" class="text"></div>
+            <button class="btn btn-success closeall" data-ng-click="GuardarRevisionDocumentosCliente()">Si</button>
+            <button id="no" class="btn btn-default closeall">No</button>
+        </div>
+        <div id="popup" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensaje" class="text"></div>
+            <button id="si" class="btn btn-success closeall">Aceptar</button>
+        </div>
+        <div id="popupDatosTabuladores" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajeDatosTabuladores" class="text"></div>
+            <button class="btn btn-success aceptarDatosTabuladores">Aceptar</button>
+        </div>
+        <div id="popupFinOperaciones" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajeFinOperaciones" class="text"></div>
+            <button class="btn btn-success aceptarFinOperaciones">Aceptar</button>
+        </div>
+        <div id="popupPaso1" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajePaso1" class="text"></div>
+            <button class="btn btn-success aceptarPaso1">Aceptar</button>
+        </div>
+        <div id="popupOk" class="popup" style="display:none">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajeok" class="text"></div>
+            <button id="btnmensajeok" class="btn btn-success">Aceptar</button>
+        </div>
+
+        <div id="popupNo" class="popup" style="display:none">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajeNo" class="text"></div>
+            <button id="btnmensajeNo" class="btn btn-danger">Aceptar</button>
+        </div>
+        <div id="cargar" class="popup upload" style="display: block; display:none">
+            <i class="fas fa-times btn-close closeall"></i>
+            <div class="caja-cargar text-center">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Elije un archivo.</p>
+                <input type="file" accept=".pdf,.jpg,.jpeg,.gif" multiple
+                       onchange="angular.element(this).scope().setFile(this)" />
+            </div>
+
+            <button class="btn btn-primary closeall" data-ng-disabled="!activarSubir"
+                    data-ng-click="subirArchivo()">
+                Aceptar
+            </button>
+        </div>
+        <div id="popupPaso1" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensajePaso1" class="text"></div>
+            <button class="btn btn-success aceptarPaso1">Aceptar</button>
+        </div>
+
+        <div id="popupVisualizaDocumentos" class="popup" style="display:none; width:800px; left:30%;">
+            <table class="tablesorter table table-striped table-bordered table-hover" id="tablaVisualizaDocumentos">
+                <thead class="table-rows star">
+                    <tr>
+                        <th style="text-align:center;">
+                            Nombre Documento
+                        </th>
+                        <th style="text-align:center;">
+                            Visualizar Documento
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="btnCerrarVisualizaDocumentos" class="btn btn-danger" style="margin-left:590px;">Cerrar</button>
+        </div>
+
+    </div>
+    <div id="cont-pasot2" class="cont-datos captura" data-ng-class="classTopAprobador" data-ng-controller="tabuladoresCtrl" data-ng-init="init()" style="display: none;">
+        @{Html.RenderPartial("_Tabulador");}
+    </div>
+
+    <div data-ng-controller="procedimientoOperacionCtrl" data-ng-class="classTopAprobador" data-ng-init="init()">
+        @{Html.RenderPartial("_ProcedimientoOperacion");}
+    </div>
+</div>
+
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.tabuladoresService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/tabuladoresCtrl.js"></script>
+
+    <script src="~/Scripts/plugin/jquery.tablesorter.min.js"></script>
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/capturaClienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.TabuladorProcedimientoOperacionService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/procedimientoOperacionCtrl.js"></script>
+
+    <script src="~/Scripts/app/layout/code.js"></script>
+
+    <script src="~/Scripts/plugin/jquery.tablesorter.min.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.aprobacionService.js"></script>
+
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/capturaClienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/procedimientoOperacionCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/aprobacion/aprobadorCtrl.js"></script>
+
+    @*<script>
+            $(document).ready(function () {
+                 //call the tablesorter plugin
+                $("table").tablesorter({
+                    // sort on the first column and third column, order asc
+                    sortList: [[0, 0], [2, 0]]
+                });
+                $('.js-example-basic-single').select2();
+            });
+
+        </script>*@
+}

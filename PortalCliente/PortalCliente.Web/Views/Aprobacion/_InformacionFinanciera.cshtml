@@ -1,0 +1,206 @@
+﻿<div class="form-sections">
+
+    <h3 class="subtitle">Información financiera y de cobranza</h3>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="tag-text">Condiciones de pago</div>
+            <div class="form-group">
+                <select class="form-control facsame" name="state" id="in26" data-ng-model="modelo.CondicionPago">
+                    <option value="">Seleccionar</option>
+                    <option value="7">7 Días</option>
+                    <option value="10">10 Días</option>
+                    <option value="15">15 Días</option>
+                    <option value="30">30 Días</option>
+                    <option value="45">45 Días</option>
+                    <option value="60">60 Días</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="tag-text">Periodo de gracia</div>
+            <div class="form-group">
+                <select class="form-control facsame" name="state" id="in27" data-ng-model="modelo.PeriodoGracia">
+                    <option value="">Seleccionar</option>
+                    <option value="Noaplica">No aplica</option>
+                    <option value="5">5 días</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">Días de pago</div>
+                <input type="number" class="form-control datos" placeholder="" id="in28" data-ng-model="modelo.DiasPago">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">Horario de pago</div>
+                <input type="text" class="form-control datos" placeholder="" id="in29" data-ng-model="modelo.HorarioPago">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador">
+                <span class="tag-text" id="l10">¿Se autoriza a suspender al cliente, pasado el periodo de gracia?</span>
+                <span class="text">
+
+                    <input type="radio" id="factchecksi5" name="cc5" class="factcheck" data-ng-model="modelo.SuspenderCliente" ng-value="true" />
+                    <label for="factchecksi5"><span><div></div></span>SI</label>
+
+                    <input type="radio" id="factcheckno5" name="cc5" class="factcheck" data-ng-model="modelo.SuspenderCliente" ng-value="false" />
+                    <label for="factcheckno5"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Contacto <i class="fa fa-angle-down"></i></th>
+                            <th>Nombre <i class="fa fa-angle-down"></i></th>
+                            <th>Puesto <i class="fa fa-angle-down"></i></th>
+                            <th>Tel Dir/Ext <i class="fa fa-angle-down"></i></th>
+                            <th>Email <i class="fa fa-angle-down"></i></th>
+                            @*<th data-ng-hide="inputDisable"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody id="numbersTab">
+                       
+                        <tr class="table-rows" ng-repeat="i in modelo.InformacionContacto" id="fila{{$index + 1}}c">
+                            <td class="input-edit">
+                                @*<input type="text" class="form-control" data-ng-model="i.Contacto" disabled>*@
+                                <select class="form-control"  disabled
+                                        data-ng-model="i.Contacto">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Cuentas por pagar">Cuentas por pagar</option>
+                                    <option value="Contabilidad">Contabilidad</option>
+                                    <option value="Finanzas">Finanzas</option>
+                                    <option value="Operaciones">Operaciones</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Nombre" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Puesto" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Telefono" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Email" disabled></td>
+                            @*<td >
+                                <i id="save{{$index + 1}}c" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaContacto(($index + 1)+'c')">
+                                    <span class="tooltip">Guardar</span>
+                                </i><i id="edit{{$index + 1}}c" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaContacto(($index + 1)+'c')">
+                                    <span class="tooltip">Editar</span>
+                                </i>
+                                <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaContacto($index)">
+                                    <span class="tooltip">Borrar</span>
+                                </i>
+                            </td>*@
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group renglon-separador">
+                <span class="tag-text" id="l11">Fondo </span>
+                <span class="text" style="margin-left: 60px;">
+                    <input type="radio" id="factchecksi6" name="cc6" class="fondo" checked data-ng-model="modelo.Fondo" ng-value="true" />
+                    <label for="factchecksi6"><span><div></div></span>SI</label>
+                    <input type="radio" id="factcheckno6" name="cc6" class="fondo" checked data-ng-model="modelo.Fondo" ng-value="false" />
+                    <label for="factcheckno6"><span><div></div></span>NO</label>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Monto</div>
+                <input type="number" class="form-control datos" placeholder="" id="monto" data-ng-model="modelo.MontoFondo">
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-margin-lateral">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador">
+                <span class="tag-text" id="l12">Financiamiento </span>
+                <span class="text">
+                    <input type="radio" id="factchecksi7" name="cc7" class="financiamiento" checked data-ng-model="modelo.Financiamiento" ng-value="true" />
+                    <label for="factchecksi7"><span><div></div></span>SI</label>
+                    <input type="radio" id="factcheckno7" name="cc7" class="financiamiento" data-ng-model="modelo.Financiamiento" ng-value="false" />
+                    <label for="factcheckno7"><span><div></div></span>NO</label>
+                </span>
+            </div>
+        </div>
+
+        <div id="fincheck" class="row no-margin-lateral" data-ng-show="modelo.Financiamiento">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Monto</div>
+                        <input type="number" class="form-control datos" placeholder="" id="in30" data-ng-model="modelo.Monto">
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Para uso en</div>
+                        <select class="form-control" name="state" id="in31" data-ng-model="modelo.ParaUso">
+                            <option value="">Seleccionar</option>
+                            <option value="Impuestos">Impuestos</option>
+                            <option value="Terceros">Terceros</option>
+                            <option value="Impuestosyterceros">Impuestos y terceros</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Punto de reorden</div>
+                        <input type="text" class="form-control datos" placeholder="" id="in32" data-ng-model="modelo.PuntoReorden">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Recuperación</div>
+                        <select class="form-control" name="state" id="in33" data-ng-model="modelo.Recuperacion">
+                            <option value="">Seleccionar</option>
+                            <option value="Factura">Factura</option>
+                            <option value="Rendición">Rendición</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Plazo</div>
+                        <select class="form-control" name="state" id="in34" data-ng-model="modelo.Plazo">
+                            <option value="">Seleccionar</option>
+                            <option value="7">7 días</option>
+                            <option value="15">15 días</option>
+                            <option value="30">30 días</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">Condiciones</div>
+                        <input type="text" class="form-control datos" placeholder="" id="in35" data-ng-model="modelo.Condicion">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

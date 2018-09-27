@@ -1,0 +1,132 @@
+﻿<div class="form-sections">
+    <h3 class="subtitle">Instrucciones de facturación</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador input-edit">
+                <span class="tag-text">Sitio FTP o página web para  carga de facturas electrónicas</span>
+                <span class="text">
+                    <input data-ng-disabled="inputDisable" type="radio" id="cargaFacSi" name="CargaFact" data-ng-model="modelActCte.CargaFact" value="1" />
+                    <label for="cargaFacSi"><span><div></div></span>SI</label>
+
+                    <input data-ng-disabled="inputDisable" type="radio" id="cargaFacNo" name="CargaFact" data-ng-model="modelActCte.CargaFact" value="0" />
+                    <label for="cargaFacNo"><span><div></div></span>NO</label>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Dirección de la página web</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.PagWebCarga" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Usuario</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.UsrCarga" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Contraseña</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.PassCarga" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador input-edit">
+                <span class="tag-text">El cliente requiere entrega física</span>
+                <span class="text">
+
+                    <input type="radio" name="EntregaFis" id="EntregaFisSi" data-ng-model="modelActCte.EntregaFis" value="1" data-ng-disabled="inputDisable"  />
+                    <label for="EntregaFisSi"><span><div></div></span>SI</label>
+
+                    <input type="radio" name="EtregaFis" id="EntregaFisNo" data-ng-model="modelActCte.EntregaFis" value="0" data-ng-disabled="inputDisable" />
+                    <label for="EntregaFisNo"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group input-edit"">
+                <div class="tag-text">Días de revisión</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.DiasRevision" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit"">
+                <div class="tag-text">Horario de revisión</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.HorarioRevision" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit"">
+                <div class="tag-text">Personas que reciben facturas</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.PersonasRecFact" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group input-edit"">
+                <div class="tag-text">No. Juego de copias</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.NoCopias" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group input-edit"">
+                <div class="tag-text">Calle y número</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.CalleNum" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit"">
+                <div class="tag-text">Colonia</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.Colonia" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group input-edit" ">
+                <div class="tag-text">Estado</div>
+                @*<input id="inp3" type="text" data-ng-model="modelActCte.Estado" class="form-control" data-ng-disabled="inputDisable" />*@
+                <select class="form-control"
+                        name="state" id="in15"
+                        data-ng-change="obtenerCiudad(modelActCte.IdEstado)"
+                        data-ng-options="estado.Id as estado.Descripcion for estado in catalogoEstado"
+                        data-ng-model="modelActCte.IdEstado">
+                    <option value="">Selecciona un estado</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4 input-edit" ">
+            <div class="tag-text">Ciudad</div>
+            @*<input id="inp3" type="text" data-ng-model="modelActCte.Ciudad" class="form-control" data-ng-disabled="inputDisable" />*@
+            <select class="form-control"
+                    name="city" id="in16"
+                    data-ng-options="ciudad.Id as ciudad.Descripcion for ciudad in catalogoCiudad"
+                    data-ng-model="modelActCte.IdCiudad">
+                <option value="">Selecciona una Ciudad</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit"">
+                <div class="tag-text">C.P.</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.CP" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+</div>

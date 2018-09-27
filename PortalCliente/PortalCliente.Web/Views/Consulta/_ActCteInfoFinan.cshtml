@@ -1,0 +1,156 @@
+﻿<div class="form-sections">
+
+    <h3 class="subtitle">Información financiera y de cobranza</h3>
+
+    <div class="row">
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Condiciones de pago</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.CondPago" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Periodo de gracia</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.PeriodoGrac" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="form-group">
+                <div class="tag-text">Días de pago</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.DiasPago" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="form-group">
+                <div class="tag-text">Horario de pago</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.HorarioPago" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador input-edit">
+                <span class="tag-text">¿Se autoriza a suspender al cliente, pasado el periodo de gracia?</span>
+                <span class="text">
+
+                    <input type="radio" data-ng-model="modelActCte.SuspenderCte" value="1" data-ng-disabled="inputDisable" id="factchecksi7" name="cc7" />
+                    <label for="factchecksi9"><span><div></div></span>SI</label>
+
+                    <input type="radio" data-ng-model="modelActCte.SuspenderCte" value="0" data-ng-disabled="inputDisable" id="factchecksi7" name="cc7" />
+                    <label for="factcheckno9"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive input-edit">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Contacto <i class="fa fa-angle-down"></i></th>
+                            <th>Nombre <i class="fa fa-angle-down"></i></th>
+                            <th>Puesto <i class="fa fa-angle-down"></i></th>
+                            <th>Tel Dir/Ext <i class="fa fa-angle-down"></i></th>
+                            <th>Email <i class="fa fa-angle-down"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers">
+                        <tr class="table-rows last" ng-repeat="i in modelActCte.ContactosIF" id="fila{{$index + 1}}">
+                            <td><input type="text" class="form-control" data-ng-model="i.Contacto" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Nombre" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Puesto" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Telefono" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Email" data-ng-disabled="inputDisable"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group renglon-separador input-edit">
+                <span class="tag-text">Fondo </span>
+                <span class="text" style="margin-left: 60px">
+
+                    <input type="radio" data-ng-model="modelActCte.Fondo" value="1" data-ng-disabled="inputDisable" class="fatcheck" />
+                    <label for="factchecksi10"><span><div></div></span>SI</label>
+
+                    <input type="radio" data-ng-model="modelActCte.Fondo" value="0" data-ng-disabled="inputDisable" class="fatcheck" />
+                    <label for="factcheckno10"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Monto</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.FondoMonto" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador input-edit">
+                <span class="tag-text">Financiamiento </span>
+                <span class="text">
+
+                    <input type="radio" data-ng-model="modelActCte.Financiamiento" value="1" data-ng-disabled="inputDisable" />
+                    <label for="factchecksi11"><span><div></div></span>SI</label>
+
+                    <input type="radio" data-ng-model="modelActCte.Financiamiento" value="0" data-ng-disabled="inputDisable" />
+                    <label for="factcheckno11"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Monto</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.FinanciamientoMonto" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Para uso en</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.UsoEn" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Punto de reorden</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.PuntoReord" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Recuperación</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.Recuperacion" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Plazo</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.Plazo" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Condiciones</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.Condiciones" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+    </div>
+
+</div>

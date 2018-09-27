@@ -1,0 +1,121 @@
+﻿<div class="form-sections">
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Representante y/o Apoderado Legal</div>
+            <input id="inp1" type="text" data-ng-model="model.DatosCliente.RepresentanteLegal" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="form-sections">
+    <div class="col-sm-12">
+        <h3 class="subtitle">Cliente</h3>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Nombre fiscal</div>
+            <input id="inp2" type="text" data-ng-model="model.DatosCliente.NombreFiscal" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">RFC</div>
+            <input id="inp3" type="text" data-ng-model="model.DatosCliente.RFC" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group input-edit">
+            <div class="tag-text">Nombre comercial</div>
+            <input id="inp4" type="text" data-ng-model="model.DatosCliente.NombreComercial" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Calle</div>
+            <input id="inp5" type="text" data-ng-model="model.DatosCliente.Calle" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">No. Ext.</div>
+            <input id="inp6" type="text" data-ng-model="model.DatosCliente.NoExt" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">No. Int.</div>
+            <input id="inp7" type="text" data-ng-model="model.DatosCliente.NoInt" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Colonia</div>
+            <input id="inp8" type="text" data-ng-model="model.DatosCliente.Colonia" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">Ciudad</div>
+            @*<input type="text" data-ng-model="Ciudad" class="form-control" data-ng-disabled="inputDisable" />*@
+            <select class="form-control" name="state" id="in9"
+                    data-ng-model="model.DatosCliente.Ciudad" 
+                    data-ng-options="ciudad as ciudad.Descripcion for ciudad in catalogoCiudad"
+                    data-ng-disabled="inputDisable">
+                <option value="">Selecciona una ciudad</option>
+            </select>
+            @*<input id="inp9" type="text" data-ng-model="model.DatosCliente.Ciudad" class="form-control" data-ng-disabled="inputDisable" />*@
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">C.P.</div>
+            <input id="inp10" type="text" data-ng-model="model.DatosCliente.CP" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Estado</div>
+            @*<input type="text" data-ng-model="Estado" class="form-control" data-ng-disabled="inputDisable" />*@
+            <select class="form-control"
+                    name="state" id="inp11"
+                    data-ng-change="obtenerCiudad(Estado)"
+                    data-ng-options="edo as edo.Descripcion for edo in catalogoEstado"
+                    data-ng-model="model.DatosCliente.Estado"
+                    data-ng-disabled="inputDisable">
+                <option value="">Selecciona un estado</option>
+            </select>
+            @*<input id="inp11" type="text" data-ng-model="model.DatosCliente.Estado" class="form-control" data-ng-disabled="inputDisable" />*@
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">País</div>
+            @*<input type="text" data-ng-model="Pais" class="form-control" data-ng-disabled="inputDisable" />*@
+            <select class="form-control"
+                    name="state" id="in12"
+                    data-ng-change="obtenerEstado(Pais)"
+                    data-ng-options="pais as pais.Descripcion for pais in catalogoPais"
+                    data-ng-model="model.DatosCliente.Pais"
+                    data-ng-disabled="inputDisable">
+                <option value="">Selecciona un país</option>
+            </select>
+            @*<input id="inp12" type="text" data-ng-model="model.DatosCliente.Pais" class="form-control" data-ng-disabled="inputDisable" />*@
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="form-group input-edit">
+                <div class="tag-text">Teléfono</div>
+                <input id="inp13" type="text" data-ng-model="model.DatosCliente.Telefono" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+</div>

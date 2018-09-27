@@ -1,0 +1,32 @@
+﻿
+<div class="modal fade" id="modalRegistroCliente" tabindex="-1" role="dialog" aria-labelledby="modalRegistroCliente" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" data-ng-controller="modalRegistroCtrl" data-ng-init="inicializar()">
+
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                        <div class="text"><strong>TÉRMINOS Y CONDICIONES</strong></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div style="width: 95%;margin: 20px auto;height: 450px;">
+                            <iframe src="~/Docs/MGEI-008-manual.pdf#zoom=60" style="border: none;width: 100%;height: 100%"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" data-ng-click="aceptarContrato()">Acepto</button>
+                        <button class="btn btn-default" data-ng-click="cancelarContrato()">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

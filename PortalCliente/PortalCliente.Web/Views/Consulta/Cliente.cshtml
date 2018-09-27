@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    .m-l-15 {
+        margin-left: 15px;
+    }
+
+    .tabla-aprobador {
+        max-height: 74px;
+        margin: 0;
+    }
+
+    .top-aprobador {
+        top: 280px !important;
+    }
+
+    .captura {
+        padding-top: 10px;
+    }
+
+    /**Para edicion*/
+    .input-edit input:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .input-edit textarea:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled select::-ms-expand {
+        display: none;
+    }
+    /****************************/
+</style>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Consultas</h1>
+    </div>
+</div>
+
+<div style="margin-bottom:10px">
+    @{Html.RenderAction("BusquedaClienteSoloClientes", "Notificacion");}
+</div>
+<div data-ng-controller="clienteCtrl">
+    <div class="row menu-sections no-margin-lateral two">
+        <div class="btn-operaciones-cont">
+            <button id="paso4" class="btn-operaciones active" onclick="showPaso(4)"><i id="icon-t1-4" class="fas fa-user iconpasos"></i> Cliente</button>
+        </div>
+        @*<div class="btn-operaciones-cont">
+            <button id="paso3" class="btn-operaciones last" onclick="showPaso(3)"><i id="icon-t1-3" class="fas fa-ban iconpasos"></i> Inactivar cliente</button>
+        </div>*@
+    </div>
+
+    <div id="cont-paso4" class="cont-datos captura">
+
+        @{Html.RenderPartial("../CapturaCliente/_DatosCliente");}
+        @{Html.RenderPartial("../CapturaCliente/_DatosContacto");}
+        @{Html.RenderPartial("../CapturaCliente/_DatosBancarios");}
+        @{Html.RenderPartial("../CapturaCliente/_DatosInfAdicional");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteDatosCte");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteTipoCte");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteInsFact");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteTabuladores");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteTabulador1");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteInfoFinan");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteTarifaVtas");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteInfoAdicCte");}
+        @{Html.RenderPartial("../Aprobacion/_ActCteProcOpr");}
+
+
+        <div class="col-sm-12 text-right">
+            <button class="btn btn-success" id="botonActivarCliente" data-ng-show="botonActivarCliente"> Activar cliente</button>
+            <button class="btn btn-danger" id="botonInactivarCliente" data-ng-show="botonInactivarCliente"> Inactivar cliente</button>
+        </div>
+
+        <br><br><br>
+
+    </div>
+    <div id="popupActivarCliente" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeActivarCliente" class="text"></div>
+        <button class="btn btn-success closeall" data-ng-click="activarCliente()">Activar</button>
+        <button id="no" class="btn btn-default closeall">Cancelar</button>
+    </div>
+    <div id="popupInactivarCliente" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeInactivarCliente" class="text"></div>
+        <button class="btn btn-success closeall" data-ng-click="inactivarCliente()">Inactivar</button>
+        <button id="no" class="btn btn-default closeall">Cancelar</button>
+    </div>
+    <div id="cont-paso3" class="cont-datos captura" style="display: none;">
+
+
+    </div>
+
+</div>
+@section scripts{
+
+
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.aprobacionService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.consultaService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/consultas/cliente/clienteCtrl.js"></script>
+}

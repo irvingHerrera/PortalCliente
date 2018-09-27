@@ -1,0 +1,96 @@
+﻿<div class="form-sections">
+
+    <h3 class="subtitle">Tabulador 1</h3>
+
+    <div class="row">
+
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Tipo de operación</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.TipoOperacion" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Aduana</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.Aduana" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Clave pedimento</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.CvePedimento" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Moneda</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.Moneda" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Facturación</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.Facturacion" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-4 input-edit">
+            <div class="form-group">
+                <div class="tag-text">Días libres en almacén Laredo</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.DiasLibres" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive input-edit">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Empresa <i class="fa fa-angle-down"></i></th>
+                            <th>Concepto facturación <i class="fa fa-angle-down"></i></th>
+                            <th>Concepto autofacturación <i class="fa fa-angle-down"></i></th>
+                            <th>Tarifa venta <i class="fa fa-angle-down"></i></th>
+                            <th>Tarifa de compra <i class="fa fa-angle-down"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers">
+                        <tr class="table-rows" ng-repeat="i in modelActCte.EmpresasT1" id="fila{{$index + 1}}">
+                            <td><input type="text" class="form-control" data-ng-model="i.Empresa" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.ConceptoF" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.ConceptoA" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.TarifaVta" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.TarifaComp" data-ng-disabled="inputDisable"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group input-edit">
+                <div class="tag-text">Datos adicionales para agregar en las factura</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.DatosAdic" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-3 input-edit">
+            <div class="tag-text">Método de pago</div>
+            <input id="inp3" type="text" data-ng-model="modelActCte.MetodoPag" class="form-control" data-ng-disabled="inputDisable" />
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group input-edit">
+                <div class="tag-text">Últimos 4 dígitos de la cuenta</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.Digit4" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group input-edit">
+                <div class="tag-text">Instrucciones especiales</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.InstEsp" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+
+    </div>
+
+</div>

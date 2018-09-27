@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Actualizar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PortalCliente.Core.Enum;
+
+<style>
+    .popup {
+        position: fixed;
+        top: 25%;
+    }
+
+    .m-l-15 {
+        margin-left: 15px;
+    }
+
+    .tabla-aprobador {
+        max-height: 74px;
+        margin: 0;
+    }
+
+    .top-aprobador {
+        top: 280px !important;
+    }
+
+    .captura {
+        padding-top: 10px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Registro de cliente</h1>
+    </div>
+</div>
+
+<div style="margin-bottom:15px">
+    @*@{Html.RenderAction("BusquedaPreclienteActivo", "Notificacion");}*@
+    @*{Html.RenderAction("BusquedaPrecliente", "Notificacion", new { banderilla = '0' });}*@
+    @{Html.RenderAction("BusquedaCliente", "Notificacion", new { GrupoEstatus = GrupoEstatus.ActualizarCliente });}
+</div>
+
+<div class="row menu-sections no-margin two">
+    <div class="btn-operaciones-cont">
+        <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)"><i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Datos generales de cliente</button>
+    </div>
+    <div class="btn-operaciones-cont">
+        <button id="paso2" class="btn-operaciones last" onclick="showPaso(2)"><i id="icon-t1-2" class="far fa-list-alt iconpasos"></i> Datos para operación</button>
+    </div>
+</div>
+
+<div id="cont-paso1" class="cont-datos captura" data-ng-controller="datoGeneralCtrl">
+    @{Html.RenderPartial("_DatoGeneral"); }
+    @{ Html.RenderPartial("_ModalSuccesError"); }
+
+</div>
+
+<div id="cont-paso2" class="cont-datos captura" data-ng-controller="datoOperacionCtrl" data-ng-init="init()" style="display: none;">
+
+    @{Html.RenderPartial("_DatoOperacion"); }
+
+    <div id="popupFinOperacion" class="popup">
+        <i class="fas fa-times btn-close closeall"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeFinOperacion" class="text"></div>
+        <button class="btn btn-success closeall" data-ng-click="recargarPagina()">Aceptar</button>
+    </div>
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/angularjs/servicio/app.actualizaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.tabuladoresService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.TabuladorProcedimientoOperacionService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.aprobacionService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.actualizaClienteService.js"></script>
+
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+
+    <script src="~/Scripts/angularjs/controlador/ActalizarCliente/datoGeneralCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/ActalizarCliente/datoOperacionCtrl.js"></script>
+
+}

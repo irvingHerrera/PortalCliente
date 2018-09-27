@@ -1,0 +1,73 @@
+﻿<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador">
+            <div class="tag-text text-bold">11. Contactos</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador">
+            <div class="tag-text text-bold">11.1 Contactos GRUPO EI</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th>Nombre <i class="fa fa-angle-down"></i></th>
+                        <th>Email <i class="fa fa-angle-down"></i></th>
+                        <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                        <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="numbers">
+                    <tr class="table-rows" data-ng-repeat="contacto in Procedimiento.Dato.ContactosEI">
+                        <td data-ng-bind="contacto.nombre"></td>
+                        <td data-ng-bind="contacto.correo"></td>
+                        <td data-ng-bind="contacto.telefono"></td>
+                        <td data-ng-bind="contacto.puesto_departamento"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador">
+            <div class="tag-text text-bold">11.2 Contactos  ({{Procedimiento.Precliente.NombreComercial}})</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th>Nombre <i class="fa fa-angle-down"></i></th>
+                        <th>Email <i class="fa fa-angle-down"></i></th>
+                        <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                        <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="numbers">
+                    <tr class="table-rows" data-ng-repeat="contacto in Procedimiento.Precliente.ContactoCliente">
+                        <td data-ng-bind="contacto.Nombre"></td>
+                        <td data-ng-bind="contacto.Correo"></td>
+                        <td data-ng-bind="contacto.Telefono"></td>
+                        <td data-ng-bind="contacto.PuestoDepartamento"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

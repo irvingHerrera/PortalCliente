@@ -1,0 +1,600 @@
+﻿<div class="form-sections">
+
+    <div class="row">
+        <div class="col-sm-7">
+            <h3 class="subtitle no-margin">Cuestionario de seguridad de la cadena logística</h3>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+            <div class="text text-center" style="font-size: 12px;">(Favor de incluir nombre del documento que evidencie su respuesta)</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">1 ¿Cuenta con certificación C-TPAT/CASCEM/BASC/NEEC o algún otro estándar en materia de seguridad?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans1checksi" name="a1" class="ans1" data-ng-model="model.Cuestionario.respuesta01" ng-value="true" />
+                    <label for="ans1checksi"><span id="checksi1"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans1checkno" name="a1" class="ans1" data-ng-model="model.Cuestionario.respuesta01" ng-value="false" />
+                    <label for="ans1checkno"><span id="checkno1"><div></div></span>NO</label>
+                </div>
+
+                <div class="col-sm-12 text-center" style="margin-top:10px;" data-ng-show="model.Cuestionario.respuesta01">
+                    <div class="form-group ">
+                        <select class="form-control" name="state" data-ng-class="model.Cuestionario.respuesta01 ? 'select-valid' : ''"
+                                data-ng-model="model.Cuestionario.certificacion1">
+                            <option value="">¿Cuál?</option>
+                            <option value="C-TPAT">C-TPAT</option>
+                            <option value="CASCEM">CASCEM</option>
+                            <option value="BASC">BASC</option>
+                            <option value="NEEC">NEEC</option>
+                        </select>
+                        <div data-ng-class="model.Cuestionario.respuesta01 ? 'select-valid-mensaje' : ''" 
+                             class="text-req">Selecciona certificación</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name1" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta01 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion01"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">2 ¿Cuenta con alguna certificación de calidad, ambiental, seguridad o responsabilidad social?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans2checksi" name="a2" class="ans2" data-ng-model="model.Cuestionario.respuesta02" ng-value="true" />
+                    <label for="ans2checksi"><span id="checksi2"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans2checkno" name="a2" class="ans2" data-ng-model="model.Cuestionario.respuesta02" ng-value="false" />
+                    <label for="ans2checkno"><span id="checkno2"><div></div></span>NO</label>
+                </div>
+
+                <div class="col-sm-12 text-center" style="margin-top:10px;" data-ng-show="model.Cuestionario.respuesta02">
+                    <div class="form-group">
+                        <select class="form-control" name="state" data-ng-class="model.Cuestionario.respuesta02 ? 'select-valid' : ''"
+                                data-ng-model="model.Cuestionario.certificacion2">
+                            <option value="">¿Cuál?</option>
+                            <option value="C-TPAT">C-TPAT</option>
+                            <option value="CASCEM">CASCEM</option>
+                            <option value="BASC">BASC</option>
+                            <option value="NEEC">NEEC</option>
+                        </select>
+                        <div data-ng-class="model.Cuestionario.respuesta02 ? 'select-valid-mensaje' : ''"  class="text-req">Selecciona certificación</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name2" 
+                      class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta02 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion02"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">3 ¿Elabora análisis de riesgos periódicamente?</div>
+                <div class="tag-text">(Se sugiere utilizar la técnica de evaluación de riesgos de la norma ISO 31000 e ISO 31010)</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+
+                <div>
+                    <input type="radio" id="ans3checksi" name="a3" class="ans3" data-ng-model="model.Cuestionario.respuesta03" ng-value="true" />
+                    <label for="ans3checksi"><span id="checksi3"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans3checkno" name="a3" class="ans3" data-ng-model="model.Cuestionario.respuesta03" ng-value="false" />
+                    <label for="ans3checkno"><span id="checkno3"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name3" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta03 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion03"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">4 ¿Realiza auditorias operativas y/o de seguridad de forma periódica?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans4checksi" name="a4" class="ans4" data-ng-model="model.Cuestionario.respuesta04" ng-value="true" />
+                    <label for="ans4checksi"><span id="checksi4"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans4checkno" name="a4" class="ans4" data-ng-model="model.Cuestionario.respuesta04" ng-value="false" />
+                    <label for="ans4checkno"><span id="checkno4"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name4" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta04 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion04"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">5 ¿Cuenta con planes de contingencia en caso de que alguna eventualidad ponga en riesgo su operación?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans5checksi" name="a5" class="ans5" data-ng-model="model.Cuestionario.respuesta05" ng-value="true" />
+                    <label for="ans5checksi"><span id="checksi5"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans5checkno" name="a5" class="ans5" data-ng-model="model.Cuestionario.respuesta05" ng-value="false" />
+                    <label for="ans5checkno"><span id="checkno5"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name5" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta05 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion05"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">6 ¿Realiza investigación y reportes de incidentes de seguridad?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans6checksi" name="a6" class="ans6" data-ng-model="model.Cuestionario.respuesta06" ng-value="true" />
+                    <label for="ans6checksi"><span id="checksi6"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans6checkno" name="a6" class="ans6" data-ng-model="model.Cuestionario.respuesta06" ng-value="false" />
+                    <label for="ans6checkno"><span id="checkno6"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name6" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta06 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion06"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">7 ¿Solicita documentación para verificar que sus proveedores o socios comerciales son confiables?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans7checksi" name="a7" class="ans7" data-ng-model="model.Cuestionario.respuesta07" ng-value="true" />
+                    <label for="ans7checksi"><span id="checksi7"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans7checkno" name="a7" class="ans7" data-ng-model="model.Cuestionario.respuesta07" ng-value="false" />
+                    <label for="ans7checkno"><span id="checkno7"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name7" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta07 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion07"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">8 ¿Su empresa verifica que las prácticas de sus proveedores o socios comerciales sean confiables, a través de visitas periódicas o alguna otra técnica de evaluación que lo garantice?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans8checksi" name="a8" class="ans8" data-ng-model="model.Cuestionario.respuesta08" ng-value="true" />
+                    <label for="ans8checksi"><span id="checksi8"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans8checkno" name="a8" class="ans8" data-ng-model="model.Cuestionario.respuesta08" ng-value="false" />
+                    <label for="ans8checkno"><span id="checkno8"><div></div></span>NO</label>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name8" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta08 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion08"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">9 ¿Su empresa cuenta con puertos de carga y descarga de contenedores, y realiza revisión de los contenedores previo a la carga o descarga para garantizar que sean seguros?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans9checksi" name="a9" class="ans9" data-ng-model="model.Cuestionario.respuesta09" ng-value="true" />
+                    <label for="ans9checksi"><span id="checksi9"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans9checkno" name="a9" class="ans9" data-ng-model="model.Cuestionario.respuesta09" ng-value="false" />
+                    <label for="ans9checkno"><span id="checkno9"><div></div></span>NO</label>
+                </div>
+            </div>
+
+            <div class="col-sm-12 text-center" style="margin-top:10px;" data-ng-show="model.Cuestionario.respuesta09">
+                <div class="form-group">
+                    <input type="number" placeholder="No. de puertos" class="form-control" 
+                           data-ng-class="model.Cuestionario.respuesta07 ? 'select-valid':''"
+                           data-ng-model="model.Cuestionario.numero_puertos">
+                    <div data-ng-class="model.Cuestionario.respuesta09 ? 'select-valid-mensaje':''" 
+                         class="text-req">Captura No. de puertos</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name9" 
+                      data-ng-class="model.Cuestionario.respuesta09 ? 'textarea-valid':''"
+                      class="form-control" data-ng-model="model.Cuestionario.observacion09"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">10 ¿Cuenta con yarda de almacenamiento de cajas de tráiler y con seguridad mínima en esta área?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans10checksi" name="a10" class="ans10" data-ng-model="model.Cuestionario.respuesta10" ng-value="true" />
+                    <label for="ans10checksi"><span id="checksi10"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans10checkno" name="a10" class="ans10" data-ng-model="model.Cuestionario.respuesta10" ng-value="false" />
+                    <label for="ans10checkno"><span id="checkno10"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name10" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta10 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion10"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">11 ¿Cuenta con acceso controlados, tanto de personal como de visitantes?</div>
+                <div class="tag-text">(Ya sea accesos magnéticos, candados o algún otro método de control)</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans11checksi" name="a11" class="ans11" data-ng-model="model.Cuestionario.respuesta11" ng-value="true" />
+                    <label for="ans11checksi"><span id="checksi11"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans11checkno" name="a11" class="ans11" data-ng-model="model.Cuestionario.respuesta11" ng-value="false" />
+                    <label for="ans11checkno"><span id="checkno11"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name11" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta11 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion11"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">12 ¿Solicita carta de antecedentes no penales, estudio antidoping o algún otro tipo de estudio/examen que verifique la confiabilidad del personal a contratar o ya contratado?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans12checksi" name="a12" class="ans12" data-ng-model="model.Cuestionario.respuesta12" ng-value="true" />
+                    <label for="ans12checksi"><span id="checksi12"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans12checkno" name="a12" class="ans12" data-ng-model="model.Cuestionario.respuesta12" ng-value="false" />
+                    <label for="ans12checkno"><span id="checkno12"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name12" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta12 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion12"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">13 ¿Su empresa cuenta con procedimientos de verificación de la documentación emitida para recibo o envío de mercancía?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans13checksi" name="a13" class="ans13" data-ng-model="model.Cuestionario.respuesta13" ng-value="true" />
+                    <label for="ans13checksi"><span id="checksi13"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans13checkno" name="a13" class="ans13" data-ng-model="model.Cuestionario.respuesta13" ng-value="false" />
+                    <label for="ans13checkno"><span id="checkno13"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name13" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta13 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion13"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">14 ¿Realiza verificaciones periódicas de su documentación legal para realizar importaciones y/o exportaciones?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans14checksi" name="a14" class="ans14" data-ng-model="model.Cuestionario.respuesta14" ng-value="true" />
+                    <label for="ans14checksi"><span id="checksi14"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans14checkno" name="a14" class="ans14" data-ng-model="model.Cuestionario.respuesta14" ng-value="false" />
+                    <label for="ans14checkno"><span id="checkno14"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name14" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta14 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion14"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">15 ¿Su empresa cuenta con instalaciones con cercado perimetral, buena iluminación, área de estacionamiento, guardia de seguridad, cámaras y alarma de seguridad?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans15checksi" name="a15" class="ans15" data-ng-model="model.Cuestionario.respuesta15" ng-value="true" />
+                    <label for="ans15checksi"><span id="checksi15"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans15checkno" name="a15" class="ans15" data-ng-model="model.Cuestionario.respuesta15" ng-value="false" />
+                    <label for="ans15checkno"><span id="checkno15"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name15" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta15 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion15"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">16 ¿Se realiza alguna verificación periódica de las instalaciones?</div>
+                <div class="tag-text">Favor de mencionar cada cuando</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans16checksi" name="a16" class="ans16" data-ng-model="model.Cuestionario.respuesta16" ng-value="true" />
+                    <label for="ans16checksi"><span id="checksi16"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans16checkno" name="a16" class="ans16" data-ng-model="model.Cuestionario.respuesta16" ng-value="false" />
+                    <label for="ans16checkno"><span id="checkno16"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name16" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta16 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion16"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">17 ¿Implementa cursos de capacitación/entrenamiento al persona, en los cuales se haga difusión de la importancia de dar seguimiento a los procedimientos de seguridad de su empresa?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans17checksi" name="a17" class="ans17" data-ng-model="model.Cuestionario.respuesta17" ng-value="true" />
+                    <label for="ans17checksi"><span id="checksi17"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans17checkno" name="a17" class="ans17" data-ng-model="model.Cuestionario.respuesta17" ng-value="false" />
+                    <label for="ans17checkno"><span id="checkno17"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name17" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta17 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion17"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">18 ¿Sus equipos de cómputo cuentan con clave/contraseña de seguridad tanto para iniciar sesión como para tener acceso a sus sistemas operativos?</div>
+                <div class="tag-text">(Se sugiere cambio trimestral o semestral para mejorar la seguridad de la información)</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans18checksi" name="a18" class="ans18" data-ng-model="model.Cuestionario.respuesta18" ng-value="true" />
+                    <label for="ans18checksi"><span id="checksi18"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans18checkno" name="a18" class="ans18" data-ng-model="model.Cuestionario.respuesta18" ng-value="false" />
+                    <label for="ans18checkno"><span id="checkno18"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name18" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta18 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion18" ></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">19 ¿Cuenta con políticas para el uso de sistemas operativos/tecnológicos, así como con acciones disciplinarias contra el personal que no las haga cumplir?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+
+                <div>
+                    <input type="radio" id="ans19checksi" name="a19" class="ans19" data-ng-model="model.Cuestionario.respuesta19" ng-value="true" />
+                    <label for="ans19checksi"><span id="checksi19"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans19checkno" name="a19" class="ans19" data-ng-model="model.Cuestionario.respuesta19" ng-value="false" />
+                    <label for="ans19checkno"><span id="checkno19"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name19" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta19 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion19"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="form-group">
+                <div class="text">20 ¿Su empresa cuenta con pláticas para la protección de información sensible?</div>
+            </div>
+        </div>
+        <div class="col-sm-2 no-padding">
+            <div class="col-sm-12 text-center no-padding">
+                <div>
+                    <input type="radio" id="ans20checksi" name="a20" class="ans20" data-ng-model="model.Cuestionario.respuesta20" ng-value="true" />
+                    <label for="ans20checksi"><span id="checksi20"><div></div></span>SI</label>
+
+                    <input type="radio" id="ans20checkno" name="a20" class="ans20" data-ng-model="model.Cuestionario.respuesta20" ng-value="false" />
+                    <label for="ans20checkno"><span id="checkno20"><div></div></span>NO</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="name20" class="form-control" 
+                      data-ng-class="model.Cuestionario.respuesta20 ? 'textarea-valid':''"
+                      data-ng-model="model.Cuestionario.observacion20"></textarea>
+        </div>
+    </div>
+
+</div>

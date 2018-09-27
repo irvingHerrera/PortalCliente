@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="~/Content/img/favicon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Portal de clientes </title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugin/css")
+    @Styles.Render("~/Content/app/css")
+    @Styles.Render("~/Content/layout/css")
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/datepicker-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/datepicker-ui/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Content/plugin/select2.css" rel="stylesheet" />
+
+
+</head>
+
+@{
+    var usuario = PortalCliente.Core.AplicacionDatoUsuario.Instancia.Usuario;
+    var t = string.Empty;
+}
+
+
+<body data-ng-app="app" data-ng-controller="mainCtrl" data-ng-init="init()">
+    <div id="preloader">
+        <div id="loader">&nbsp;</div>
+    </div>
+    <div class="container-oc">
+        <nav class="navbar-oc">
+            <div class="navbar-header-oc">
+                <i id="menu-responsive" class="fas fa-bars menu-responsive"></i>
+                <i id="menu-compress" class="fas fa-bars menu-compress"></i>
+                <img src="~/Content/img/logo-w.png">
+            </div>
+            <div class="cont-search">
+               
+            </div>
+            <div class="navbar-links">
+                <ul>
+                    <li class="subcont">
+                        <a href="#"><i class="fas fa-bell"></i><div class="pop-notification">{{notificacion.length > 99 ? ('+'+99):notificacion.length}}</div></a>
+                        <div class="cont-links submenu">
+                            <div class="contenedor-notificacion">
+                                <a style="cursor:pointer; padding:15px;" data-ng-repeat="item in notificacion" data-ng-click="notificacionSeleccionada(item)">
+                                    <span style="display:block" class="small"><strong>{{item.IdPrecliente +' '+ item.NombreComercial}} </strong></span>
+                                    <span style="display:block" class="text-gray small">Estatus: {{item.Descripcion}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="subcont">
+                        <a href="#"><img src="~/Content/img/icon-user.png"></a>
+                        
+                        <div class="cont-links-user submenu">
+                            <a href="/Login"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                        </div>
+                        
+                    </li>
+                    <li class="subcont">
+                        <span><strong>Bienvenido: </strong>@usuario.Nombre</span>
+                    </li>
+                    <li class="subcont">
+                        <a href="#"><img src="~/Content/img/icon_calendar.png" width="20" height="20"></a>
+                    </li>
+                    <li class="subcont" style="margin-right: 15px; margin-left: -15px;">
+                        <span><strong>@usuario.Fecha</strong></span>
+                    </li>
+                </ul>
+            </div>
+            <div id="menu" class="navbar-menu">
+                <div class='cssmenu'>
+                    <ul>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.Cliente ? string.Empty : "no-display")">
+                            <a href="/registroCliente" class="normal active"><i class="fas fa-user-plus"></i> <span>Registro cliente</span></a>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.EjecutivoVenta ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "CapturaCliente")" class="normal"><i class="fas fa-edit"></i> <span>Captura cliente</span></a>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.AltaCliente ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "AltaCliente")" class="normal"><i class="far fa-calendar-check"></i> <span>Alta cliente</span></a>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.Aprobacion ||  
+                                     usuario.Rol == PortalCliente.Core.Enum.TipoRol.GerenteComercial ||
+                                     usuario.Rol == PortalCliente.Core.Enum.TipoRol.Lider
+                                        ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "Aprobacion")" class="normal"><i class="far fa-check-square"></i> <span>Aprobación</span></a>
+                        </li>
+                        <li class='has-sub @(usuario.Rol == PortalCliente.Core.Enum.TipoRol.EjecutivoVenta ||
+                                             usuario.Rol == PortalCliente.Core.Enum.TipoRol.GerenteComercial ||
+                                             usuario.Rol == PortalCliente.Core.Enum.TipoRol.Aprobacion ||
+                                             usuario.Rol == PortalCliente.Core.Enum.TipoRol.AltaCliente
+                                                ? string.Empty : "no-display")'>
+                            <a id="con-sub" href="#" class="anormal"><i class="fas fa-search"></i> <span>Consultas</span></a>
+                            <ul id="opensub">
+                                <li>
+                                    <a href='@Url.Action("Precliente", "Consulta")' class="normali">Pre-cliente</a>
+                                </li>
+                                <li>
+                                    <a href='@Url.Action("Cliente", "Consulta")' class="normali">Cliente</a>
+                                </li>
+                                <li>
+                                    <a href='@Url.Action("AltaPendiente", "Consulta")' class="normali">Altas pendientes</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.AltaCliente ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "ActualizarCliente")" class="normal"><i class="fas fa-sync-alt"></i> <span>Actualizar cliente</span></a>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.AltaCliente ||
+                                     usuario.Rol == PortalCliente.Core.Enum.TipoRol.EjecutivoVenta
+                                        ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "Impresion")" class="normal"><i class="fas fa-print"></i> <span>Impresiones</span></a>
+                        </li>
+                        <li class="@(usuario.Rol == PortalCliente.Core.Enum.TipoRol.Administrador ? string.Empty : "no-display")">
+                            <a href="@Url.Action("Index", "Configuracion")" class="normal"><i class="fas fa-cog"></i> <span>Configuración</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="row content-body">
+            <div class="col-xs-12 page-cont">
+                @RenderBody()
+                @{Html.RenderPartial("_ModalRegistroCliente");}
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay-menu-responsive" class="overlay-menu-responsive"></div>
+
+    <div class="popupoverlay closeall"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/plugin")
+    @Scripts.Render("~/bundles/app")
+    <script>
+        var aplicacionDatoUsuario = @Html.Raw(Json.Encode(PortalCliente.Core.AplicacionDatoUsuario.Instancia.Usuario));
+        console.log("aplicacionDatosUsuarios", aplicacionDatoUsuario);
+    </script>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/angularjs/app.module.js"></script>
+    <script src="~/Scripts/angularjs/app.tools.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.layoutService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/layout/mainCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/layout/modalRegistroCtrl.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

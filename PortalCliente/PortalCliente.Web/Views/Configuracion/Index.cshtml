@@ -1,0 +1,196 @@
+﻿
+@{
+	ViewBag.Title = "Configuración";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input id="url-equipo-operativo" type="hidden" value="@Url.Action("ObtenerEquipoOperativo", "Configuracion")" />
+
+<div class="row">
+	<div class="col-sm-12">
+		<h1 class="page-header">Configuración</h1>
+	</div>
+</div>
+
+
+<div class="row menu-sections no-margin four">
+	<div class="col-sm-12">
+		<div class="btn-operaciones-cont">
+			<button id="btnUsuario" class="btn-operaciones active"><i id="icon-t1-1" class="far fa-list-alt iconpasos"></i>Usuarios</button>
+		</div>
+		<div class="btn-operaciones-cont">
+			<button id="btnRoles" class="btn-operaciones"><i id="icon-t1-2" class="fas fa-list-ul iconpasos"></i>Roles</button>
+		</div>
+	</div>
+</div>
+
+<br />
+
+<div id="dvUsuarios">
+    <input type="hidden" id="hduser" value="" />
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle"><span id="txttitulo">Alta de usuario</span></h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Nombre de usuario</div>
+                <input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtnombreusuario">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Rol de usuario</div>
+                <select id="ddlRol" class="form-control datos">
+                    <option value="0">Rol</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Cuenta de usuario</div>
+                <input type="text" maxlength="50" class="form-control datos" placeholder="" id="txtcuentausuario">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Contraseña generica</div>
+                <input type="password" maxlength="50" class="form-control datos" placeholder="" id="txtpwd">
+                <span toggle="#txtpwd" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="form-group">
+                <div class="tag-text">Cuenta de correo para notificación </div>
+                <input type="email" maxlength="50" class="form-control datos" placeholder="" id="txtmail">
+            </div>
+        </div>
+
+
+        <div id="dvPrecliente" style="display:none" class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Id Precliente</div>
+                <input type="email" disabled maxlength="50" class="form-control datos" placeholder="" id="txtidprecliente">
+            </div>
+        </div>
+
+        <div id="dvGrupoLider" style="display:none" class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Equipo Operativo</div>
+                @*<input type="text" maxlength="50" class="form-control datos" placeholder="" id="txtGrupo">*@
+
+                <select class="form-control datos" id="txtGrupo"></select>
+
+            </div>
+        </div>
+
+       
+            <div id="dvAct" class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text"><strong>Activo</strong></div>
+                    <input type="radio" id="factchecksi8" name="cc8" checked="">
+                    <label for="factchecksi8"><span><div></div></span>Si</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="factcheckno8" name="cc8">
+                    <label for="factcheckno8"><span><div></div></span>No</label>
+                </div>
+            </div>
+       
+
+
+            <div class="col-sm-12 text-right">
+                <button id="btnCancelar" class="btn btn-primary"><i class="far fa-cancel"></i> Cancelar</button>
+                <button id="btnGuardar" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
+            </div>
+    </div>
+    <br />
+
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle">Usuarios actuales</h3>
+        </div>
+     
+        <div class="col-sm-12">
+            <div id="dvGridUsuarios"></div>
+        </div>
+     
+    </div>
+        
+</div>
+
+<div id="dvRoles" style="display:none">
+    <input type="hidden" id="hdRol" value="" />
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle"><span id="txtRoltitulo">Roles</span></h3>
+        </div>
+
+        @*<div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Descripcion del rol</div>
+                <input type="text" maxlength="50" class="form-control datos" placeholder="" id="txtRolDesc">
+            </div>
+        </div>*@
+
+        <div class="col-sm-6">
+            <div class="tag-text">Rol de usuario</div>
+            <div class="form-group">
+                <select class="form-control" name="state" id="ddlRolesEdit">           
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Pantallas</div>
+                <div id="dvPantallas">
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <br />
+        <div class="col-sm-12">
+
+        </div>
+        <br />
+        <div class="col-sm-12 text-right">
+            <button id="btnGuardarRol" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
+        </div>
+    </div>
+    @*<br />
+
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle">Roles actuales</h3>
+        </div
+        <div class="col-sm-12">
+            <div id="dvGridRoles"></div>
+        </div>
+    </div>*@
+</div>
+
+
+<div id="popup" class="popup">
+	<i class="fas fa-times btn-close"></i>
+	<div class="icon"><i class=""></i></div>
+	<div id="mensaje" class="text"></div>
+	<button id="btAceptaModal" class="btn btn-success">Aceptar1</button>
+</div>
+
+
+<div id="popup-error" class="popup">
+	<i class="fas fa-times btn-close"></i>
+	<div class="icon"><i class=""></i></div>
+	<div id="mensaje-aviso" class="text"></div>
+	<button class="btn btn-danger btn-aviso">Aceptar</button>
+</div>
+
+    @section scripts {
+        <script src="~/Scripts/jsConfiguracion.js?ver=11"></script>
+    }

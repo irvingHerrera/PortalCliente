@@ -1,0 +1,137 @@
+﻿
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group renglon-separador">
+            <div class="tag-text text-bold">7. Administración</div>
+        </div>
+    </div>
+</div>
+
+<div class="row" data-ng-hide="camposFinanciamiento">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text text-bold">7.1 Financiamiento</div>
+        </div>
+    </div>
+</div>
+
+<div class="row" data-ng-hide="camposFinanciamiento">
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Monto</div>
+            <input type="text" data-ng-model="Procedimiento.Monto"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Para uso en</div>
+            <input type="text" data-ng-model="Procedimiento.Parausoen"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Punto de reorden</div>
+            <input type="text" data-ng-model="Procedimiento.PuntoReorden"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="row" data-ng-hide="camposFinanciamiento">
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Recuperación</div>
+            <input type="text" data-ng-model="Procedimiento.Recuperacion"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Plazo</div>
+            <input type="text" data-ng-model="Procedimiento.Plazo"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group input-edit">
+            <div class="tag-text">Condiciones</div>
+            <input type="text" data-ng-model="Procedimiento.Condiciones" 
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">7.2 Facturación</div>
+            <input type="text" data-ng-model="Procedimiento.Facturacion"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">7.3 Cobranza</div>
+            <input type="text" data-ng-model="Procedimiento.Cobranza"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador input-edit">
+            <div class="tag-text">8. Indicadores de desempeño</div>
+            <input type="text" data-ng-model="Procedimiento.IndicadoresDesempeno" 
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">8.1 KPI</div>
+            <input type="text" data-ng-model="Procedimiento.KPI"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">8.2 Reportes</div>
+            <input type="text" data-ng-model="Procedimiento.Reportes"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">9. HC/MV2 </div>
+            <input type="text" data-ng-model="Procedimiento.HCMVDos"
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">10. Post-Venta</div>
+            <!--
+            <input type="text" data-ng-model="Procedimiento.PostVenta_" class="form-control datos" placeholder="En Grupo EI nos comprometemos a simplificar el comercio exterior, por lo tanto la revisión de sus procesos se llevara a cabo por parte de su EJECUTIVO DE VENTAS cada 3 meses buscando mejorar el servicio"
+            value="" readonly>
+            -->
+            <textarea id="postventa_aux" disabled class="form-control" readonly>"En Grupo EI nos comprometemos a simplificar el comercio exterior, por lo tanto la revisión de sus procesos se llevara a cabo por parte de su EJECUTIVO DE VENTAS cada 3 meses buscando mejorar el servicio."</textarea>
+        </div>
+    </div>
+</div>

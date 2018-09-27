@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="~/Content/img/favicon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Portal de clientes </title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/plugin/css")
+    @Styles.Render("~/Content/app/css")
+    @Styles.Render("~/Content/layout/css")
+</head>
+
+<body data-ng-app="app" data-ng-controller="mainCtrlLogin">
+    <div id="preloader">
+        <div id="loader">&nbsp;</div>
+    </div>
+    <div class="container-oc">
+        <nav class="navbar-oc">
+            <div class="navbar-header-oc">
+                <i id="menu-responsive" class="fas fa-bars menu-responsive"></i>
+                <i id="menu-compress" class="fas fa-bars menu-compress"></i>
+                <img src="~/Content/img/logo-w.png">
+            </div>
+            <div id="menu" class="navbar-menu">
+                <div class='cssmenu'>
+                </div>
+            </div>
+        </nav>
+        <div class="row content-body">
+            <div class="col-xs-12 page-cont">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay-menu-responsive" class="overlay-menu-responsive"></div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/plugin")
+    @Scripts.Render("~/bundles/app")
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/angularjs/app.module.js"></script>
+    <script src="~/Scripts/angularjs/app.tools.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.layoutService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/layout/mainCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/layout/modalRegistroCtrl.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

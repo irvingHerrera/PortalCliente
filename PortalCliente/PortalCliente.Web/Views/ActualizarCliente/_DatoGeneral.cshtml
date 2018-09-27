@@ -1,0 +1,75 @@
+﻿
+@{Html.RenderPartial("_DatosCliente");}
+
+@{Html.RenderPartial("_DatosContacto");}
+
+@{Html.RenderPartial("_DatosBancarios");}
+
+@{Html.RenderPartial("_DatosInfAdicional");}
+
+@{Html.RenderPartial("_DatosCuestionario");}
+
+@{Html.RenderPartial("_DatosDocumentos");}
+
+<div id="ver-documento" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento2" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame2" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento3" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame3" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento4" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame4" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento5" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame5" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento6" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame6" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento7" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame7" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento8" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame8" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento9" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame9" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+<div id="ver-documento10" class="popup-documento">
+    <i class="fas fa-times btn-close close-doc"></i>
+    <iframe id="frame10" style="border: none;width: 100%;height: 100%"></iframe>
+</div>
+
+<div id="cargar" class="popup upload" style="display: block; display:none">
+    <i class="fas fa-times btn-close closeall"></i>
+    <div class="caja-cargar text-center">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Elije un archivo.</p>
+        <input type="file" accept=".pdf,.jpg,.jpeg,.gif" multiple
+               onchange="angular.element(this).scope().setFile(this)" />
+    </div>
+
+    <button class="btn btn-primary closeall" data-ng-disabled="!activarSubir"
+            data-ng-click="subirArchivo()">
+        Aceptar
+    </button>
+</div>
+
+
+<div class="col-sm-12 text-right">
+    <button class="btn btn-primary" data-ng-click="guardarEdicion()"> Guardar</button>
+</div>
+<br><br><br>
+

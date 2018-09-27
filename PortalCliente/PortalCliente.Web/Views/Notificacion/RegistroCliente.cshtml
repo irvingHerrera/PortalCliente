@@ -1,0 +1,319 @@
+﻿
+@{
+    ViewBag.Title = "Registro Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Registro de cliente</h1>
+    </div>
+</div>
+
+<div class="row menu-sections no-margin four">
+    <div class="col-sm-12">
+        <div class="btn-operaciones-cont">
+            <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)"><i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Datos de cliente</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso2" class="btn-operaciones" onclick="showPaso(2)" disabled><i id="icon-t1-2" class="fas fa-list-ul iconpasos"></i> Datos adicionales</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso3" class="btn-operaciones" onclick="showPaso(3)" disabled><i id="icon-t1-3" class="fas fa-lock iconpasos"></i> Cuestionario de seguridad</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso4" class="btn-operaciones last" onclick="showPaso(4)" disabled><i id="icon-t1-4" class="far fa-file-alt iconpasos"></i> Documentación del cliente</button>
+        </div>
+    </div>
+</div>
+
+<div id="cont-paso1" class="cont-datos">
+
+    <div class="form-sections">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">ID de Pre-cliente</div>
+                <input type="number" class="form-control datos" placeholder="" id="in1">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Representante y/o Apoderado Legal</div>
+                <input type="text" class="form-control datos" placeholder="" id="in2">
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle">Cliente</h3>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Nombre fiscal</div>
+                <input type="text" class="form-control datos" placeholder="" id="in3">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">RFC</div>
+                <input type="text" class="form-control datos" placeholder="" id="in4">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="tag-text">Nombre comercial</div>
+                <input type="text" class="form-control datos" placeholder="" id="in5">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Calle</div>
+                <input type="text" class="form-control datos" placeholder="" id="in6">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">No. Ext.</div>
+                <input type="number" class="form-control datos" placeholder="" id="in7">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">No. Int.</div>
+                <input type="number" class="form-control datos" placeholder="" id="in8">
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Colonia</div>
+                <input type="text" class="form-control" placeholder="" id="in9">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="tag-text">Ciudad</div>
+            <div class="form-group">
+                <select class="form-control" name="state" id="in10">
+                    <option value="">Selecciona una ciudad</option>
+                    <option value="WY">2</option>
+                    <option value="WY">3</option>
+                    <option value="WY">4</option>
+                    <option value="WY">5</option>
+                    <option value="WY">6</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">C.P.</div>
+                <input type="number" class="form-control" placeholder="" id="in11">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Estado</div>
+                <div class="form-group">
+                    <select class="form-control" name="state" id="in12">
+                        <option value="">Selecciona un estado</option>
+                        <option value="1">Aguascalientes</option>
+                        <option value="2">Baja California</option>
+                        <option value="3">Baja California Sur</option>
+                        <option value="4">Campeche</option>
+                        <option value="5">Coahuila de Zaragoza</option>
+                        <option value="6">Colima</option>
+                        <option value="7">Chiapas</option>
+                        <option value="8">Chihuahua</option>
+                        <option value="9">Distrito Federal</option>
+                        <option value="10">Durango</option>
+                        <option value="11">Guanajuato</option>
+                        <option value="12">Guerrero</option>
+                        <option value="13">Hidalgo</option>
+                        <option value="14">Jalisco</option>
+                        <option value="15">México</option>
+                        <option value="16">Michoacán de Ocampo</option>
+                        <option value="17">Morelos</option>
+                        <option value="18">Nayarit</option>
+                        <option value="19">Nuevo León</option>
+                        <option value="20">Oaxaca</option>
+                        <option value="21">Puebla</option>
+                        <option value="22">Querétaro</option>
+                        <option value="23">Quintana Roo</option>
+                        <option value="24">San Luis Potosí</option>
+                        <option value="25">Sinaloa</option>
+                        <option value="26">Sonora</option>
+                        <option value="27">Tabasco</option>
+                        <option value="28">Tamaulipas</option>
+                        <option value="29">Tlaxcala</option>
+                        <option value="30">Veracruz de Ignacio de la Llave</option>
+                        <option value="31">Yucatán</option>
+                        <option value="32">Zacatecas</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="tag-text">País</div>
+            <div class="form-group">
+                <select class="form-control" name="state" id="in13">
+                    <option value="">Selecciona un país</option>
+                    <option value="WY">2</option>
+                    <option value="WY">3</option>
+                    <option value="WY">4</option>
+                    <option value="WY">5</option>
+                    <option value="WY">6</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">Teléfono</div>
+                <input type="tel" class="form-control" placeholder="" id="in14">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle">Información de contactos</h3>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Área <i class="fa fa-angle-down"></i></th>
+                            <th>Nombre <i class="fa fa-angle-down"></i></th>
+                            <th>Email <i class="fa fa-angle-down"></i></th>
+                            <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                            <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers1">
+                        <tr class="table-rows">
+                            <td><input type="text" class="form-control" placeholder="" id="area-in"></td>
+                            <td><input type="text" class="form-control" placeholder="" id="nombre-in"></td>
+                            <td><input type="email" class="form-control" placeholder="" id="email-in"></td>
+                            <td><input type="tel" class="form-control" placeholder="" id="telefono-in"></td>
+                            <td>
+                                <select class="form-control" name="state" id="puesto-in">
+                                    <option value="">Puesto/Dpto.</option>
+                                    <option value="WY">2</option>
+                                    <option value="WY">3</option>
+                                    <option value="WY">4</option>
+                                    <option value="WY">5</option>
+                                    <option value="WY">6</option>
+                                </select>
+                            </td>
+                            <td>
+                                <i id="add-tr" class="fas fa-plus boxtool"><div class="tooltip">Agregar</div></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="req-table1" class="requerido">Debes capturar por lo menos un registro</div>
+        </div>
+    </div>
+
+
+    <div class="form-sections">
+        <div class="col-sm-12">
+            <h3 class="subtitle">Datos bancarios</h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Banco</div>
+                <input type="text" class="form-control" placeholder="" id="in15">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Cuenta</div>
+                <input type="number" class="form-control" placeholder="" id="in16">
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Clabe</div>
+                <input type="number" class="form-control" placeholder="" id="in17">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Moneda</div>
+                <input type="text" class="form-control" placeholder="" id="in18">
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Sucursal</div>
+                <input type="text" class="form-control" placeholder="" id="in19">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Ciudad</div>
+                <input type="text" class="form-control" placeholder="" id="in20">
+            </div>
+        </div>
+
+        <div class="col-sm-12" style="margin-top: 20px;">
+            <div class="form-group">
+                <div class="tag-text">Cuenta bancaria autorizada para el pago de pedimentos y formularios múltiples (PECA)</div>
+
+                <div class="table-responsive">
+                    <table class="tablesorter table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>Banco <i class="fa fa-angle-down"></i></th>
+                                <th>No. cuenta <i class="fa fa-angle-down"></i></th>
+                                <th>Identificador <i class="fa fa-angle-down"></i></th>
+                                <th>Patentes autorizadas <i class="fa fa-angle-down"></i></th>
+                                <th>Aduana <i class="fa fa-angle-down"></i></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbers2">
+                            <tr class="table-rows">
+                                <td><input type="text" class="form-control" placeholder="" id="banco-in"></td>
+                                <td><input type="number" class="form-control" placeholder="" id="cuenta-in"></td>
+                                <td><input type="text" class="form-control" placeholder="" id="identificador-in"></td>
+                                <td><input type="text" class="form-control" placeholder="" id="patentes-in"></td>
+                                <td><input type="text" class="form-control" placeholder="" id="aduana-in"></td>
+                                <td>
+                                    <i id="add-tr2" class="fas fa-plus boxtool"><div class="tooltip">Agregar</div></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="req-table2" class="requerido">Debes capturar por lo menos un registro</div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="col-sm-12 text-right">
+        <button id="guardar1" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
+    </div>
+    <br><br><br>
+
+
+</div>

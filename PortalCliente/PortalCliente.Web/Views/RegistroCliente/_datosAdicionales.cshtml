@@ -1,0 +1,245 @@
+﻿<div class="form-sections">
+
+	<h3 class="subtitle">Información adicional del cliente</h3>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<div class="tag-text">Giro</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.Giro" placeholder="" id="txtDAGiro">
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="form-group">
+				<div class="tag-text">Tiempo establecido</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.TiempoEstablecido" placeholder="" id="txtDATE">
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<div class="form-group">
+				<div class="tag-text">No. Empleados</div>
+				<input type="number" class="form-control datos" data-ng-model="modelo.NumeroEmpleado"  placeholder="" id="txtDANE">
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="form-group">
+				<div class="tag-text">Ventas anuales</div>
+				<input type="number" class="form-control datos" data-ng-model="modelo.VentaAnual" placeholder="" id="txtDAVA">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<div class="tag-text">Página web</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.PaginaWeb" placeholder="" id="txtPW">
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				<div class="tag-text">Patentes por las que operará</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.PatentesOperacion" placeholder="" id="txtOper">
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				<div class="tag-text">Frecuencia de embarques</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.FrecuentaEmbarques" placeholder="" id="txtFrecuencia">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<div class="tag-text"><strong>VUCEM</strong></div>
+				<input type="radio" id="factchecksi8" name="cc8" checked="">
+				<label for="factchecksi8"><span><div></div></span>Cliente firma con su fiel o sello los documentos y transmite a Ventanilla Única</label>
+			</div>
+			<div class="form-group">
+				<input type="radio" id="factcheckno8" name="cc8">
+				<label for="factcheckno8"><span><div></div></span>Grupo EI realiza los servicios de captura del COVE, digitalización de documentos y firma mediante el sello digital proporcionado por el cliente.</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<div class="tag-text">Cuentas de correo donde llegaran notificaciones de arribo de embarques</div>
+				<input type="text" class="form-control datos" data-ng-model="modelo.CorreosArriboEmbarque" placeholder="" id="idCorreoArriboDA">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group renglon-separador">
+				<div class="tag-text">Usuarios que requieren acceso a Aduabook autorizados por el cliente</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="table-responsive">
+				<table id="tblusrs" class="tablesorter table table-striped table-bordered table-hover">
+					<thead class="table-rows star">
+						<tr>
+							<th class="header headerSortDown">Nombre <i class="fa fa-angle-down"></i></th>
+							<th class="header">Puesto <i class="fa fa-angle-down"></i></th>
+							<th class="header headerSortDown">Tel Dir/ext. <i class="fa fa-angle-down"></i></th>
+							<th class="header">Correo electrónic <i class="fa fa-angle-down"></i></th>
+							<th class="header">Admon. <i class="fa fa-angle-down"></i></th>
+							<th class="header">Oper. <i class="fa fa-angle-down"></i></th>
+							<th class="header"></th>
+						</tr>
+					</thead>
+					<tbody class="tblusuariosaudabook" id="numbers3">
+						<tr class="table-rows">
+							<td><input type="text" class="form-control" placeholder="" id="nombre_in"></td>
+							<td><input type="text" class="form-control" placeholder="" id="puesto_in"></td>
+							<td><input type="tel"  class="form-control" placeholder="" id="telefono_in"></td>
+							<td><input type="email" class="form-control" placeholder="" id="correo_in"></td>
+							<td><input type="text" class="form-control" placeholder="" id="admon_in"></td>
+							<td><input type="text" class="form-control" placeholder="" id="oper_in"></td>
+							<td>
+								<i id="add-tr3" class="fas fa-plus boxtool"><div class="tooltip">Agregar</div></i>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="req-table3" class="requerido">Debes capturar por lo menos un registro</div>
+		</div>
+
+	</div>
+	<br />
+	<div class="col-sm-12 text-right">
+		<button id="btnGuardarDatosAdicionales" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
+	</div>
+
+</div>
+	@*<div class="row">
+			<div class="col-sm-12">
+				<h1 class="page-header">Datos adicionales</h1>
+			</div>
+		</div>
+
+		<br />
+
+		<div id="dvDatosAdicionales">
+			<input type="hidden" id="hdCliente" value="" />
+			<div class="form-sections">
+				<div class="col-sm-12">
+					<h3 class="subtitle"><span id="txttitulo">Agregar datos adicionales</span></h3>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Giro</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtGiro">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Tiempo establecido</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtTiempoEstablecido">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Número de empleados</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtNumEmpleados">
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Ventas Anuales</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtVentasAnuales">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Página web</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtPaginaWeb">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Patente</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtPatente">
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Frecuencia</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtFrecuencia">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Correo para arribos de correos</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtCorreoparaarribos">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Nombre</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtDaNombre">
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Puesto</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtDaPuesto">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Telefono</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtDaTelefono">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Correo electronico</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtDaCorreoElectronico">
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Admon</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtAdmon">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<div class="tag-text">Oper</div>
+						<input type="text" maxlength="200" class="form-control datos" placeholder="" id="txtOper">
+					</div>
+				</div>
+
+				<div class="col-sm-12 text-right">
+					<button id="btnDaGuardar" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
+				</div>
+			</div>
+			<br />
+
+			<div class="form-sections">
+				<div class="col-sm-12">
+					<h3 class="subtitle"></h3>
+				</div>
+
+				<div class="col-sm-12">
+					<div id="dvDatosAdicionales"></div>
+				</div>
+
+			</div>
+
+		</div>*@

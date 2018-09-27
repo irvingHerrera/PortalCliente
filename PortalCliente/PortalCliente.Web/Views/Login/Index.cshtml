@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Portal Clientes";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+
+    var mensajeError = PortalCliente.Core.LoginMensaje.Instancia.Mensaje;
+
+}
+
+<div data-ng-controller="mainCtrlLogin">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">Acceso al Sistema</h1>
+        </div>
+    </div>
+    <div class="row menu-sections no-margin four">
+        <div class="col-sm-12">
+            <div class="btn-operaciones-cont" style="width:100%;">
+                <button id="paso1" class="btn-operaciones active">
+                    <i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Ingresar Credenciales
+                </button>
+            </div>
+        </div>
+    </div>
+    <form name="formDatoCliente" novalidate autocomplete="off">
+        <div id="cont-paso1" class="cont-datos">
+            <div class="form-sections">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="tag-text">Usuario</div>
+                        <input type="text"
+                               class="form-control datos"
+                               placeholder=""
+                               id="user"
+                               data-ng-model="login.user">
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="tag-text">Contraseña</div>
+                        <input type="password"
+                               class="form-control datos"
+                               placeholder=""
+                               id="pass"
+                               data-ng-model="login.pass">
+                    </div>
+                    <span style="color:red;">@mensajeError</span>
+                </div>
+            </div>
+            <div class="col-sm-12 text-right">
+                <button class="btn btn-primary" data-ng-click="ValidarLogin()">
+                    Iniciar Sesión
+                </button>
+            </div>
+            <br><br><br>
+        </div>
+    </form>
+    <div id="popup" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensaje" class="text"></div>
+        <button id="btn1" class="btn btn-success acept">Aceptar2</button>
+        <button class="btn btn-success acept2" style="display: none;">Aceptar2.2</button>
+    </div>
+
+    <div id="popup-error" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensaje-aviso" class="text"></div>
+        <button class="btn btn-danger btn-aviso">Aceptar</button>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/angularjs/servicio/app.layoutServiceLogin.js"></script>
+    <script src="~/Scripts/angularjs/controlador/layout/mainCtrlLogin.js"></script>
+}

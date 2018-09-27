@@ -1,0 +1,475 @@
+﻿@{
+    ViewBag.Title = "Registro Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div data-ng-controller="datoClienteCtrl" data-ng-init="init()">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">Registro de cliente</h1>
+        </div>
+    </div>
+
+    <div class="row menu-sections no-margin four">
+        <div class="col-sm-12">
+            <div class="btn-operaciones-cont">
+                <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)">
+                    <i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Datos de cliente
+                </button>
+            </div>
+            <div class="btn-operaciones-cont">
+                <button id="paso2" class="btn-operaciones" onclick="showPaso(2)" disabled>
+                    <i id="icon-t1-2" class="fas fa-list-ul iconpasos"></i> Datos adicionales
+                </button>
+            </div>
+            <div class="btn-operaciones-cont">
+                <button id="paso3" class="btn-operaciones" onclick="showPaso(3)" disabled>
+                    <i id="icon-t1-3" class="fas fa-lock iconpasos"></i> Cuestionario de seguridad
+                </button>
+            </div>
+            <div class="btn-operaciones-cont">
+                <button id="paso4" class="btn-operaciones last" onclick="showPaso(4)" data-ng-click="clickDocumento()" disabled>
+                    <i id="icon-t1-4" class="far fa-file-alt iconpasos"></i> Documentación del cliente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <form name="formDatoCliente" novalidate autocomplete="off">
+
+        <div id="cont-paso1" class="cont-datos">
+
+            <div class="form-sections">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="tag-text">ID de Pre-cliente</div>
+                        <input type="text"
+                               class="form-control datos"
+                               placeholder=""
+                               id="in1"
+                               data-ng-model="modelo.IdPreclienteVisual"
+                               readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="tag-text">Representante y/o Apoderado Legal</div>
+                        <input type="text" class="form-control datos" placeholder=""
+                               id="in2" data-ng-model="modelo.RepresentanteLegal">
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+
+            @{Html.RenderPartial("_DatoCliente");}
+
+            @{Html.RenderPartial("_Contacto");}
+
+            @{Html.RenderPartial("_Banco");}
+
+
+            <div class="col-sm-12 text-right">
+                <button class="btn btn-primary" data-ng-click="guardarDatos()">
+                    <i class="far fa-save"></i> Guardar
+                </button>
+                @*<button id="guardar1" class="btn btn-primary" data-ng-click="guardarDatos()">
+                    <i class="far fa-save"></i> Guardar</button>*@
+            </div>
+            <br><br><br>
+
+
+        </div>
+
+        <div id="cont-paso2" style="display:none" class="cont-datos">
+            @{ Html.RenderPartial("_datosAdicionales"); }
+        </div>
+
+        <div id="cont-paso4" style="display:none" class="cont-datos">
+            @{ Html.RenderPartial("_DocumentacionCliente"); }
+        </div>
+
+    </form>
+    <div id="cont-paso3" class="cont-datos" style="display: none;">
+        @{Html.RenderPartial("_CuestionarioSeguridad");}
+    </div>
+
+    <div id="popupDatosCliente" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeDatosCliente" class="text"></div>
+        <button class="btn btn-success aceptarDatosCliente">Aceptar</button>
+    </div>
+
+    <div id="popupDatosAdicionales" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeDatosAdicionales" class="text"></div>
+        <button class="btn btn-success aceptarDatosAdicionales">Aceptar</button>
+    </div>
+
+    <div id="popupCuestionesSeguridad" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeCuestionesSeguridad" class="text"></div>
+        <button class="btn btn-success aceptarCuestionesSeguridad">Aceptar</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensaje" class="text"></div>
+        <button class="btn btn-success acept">Aceptar</button>
+    </div>
+
+    <div id="popupFin" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeFin" class="text"></div>
+        <button class="btn btn-success aceptFin">Aceptar</button>
+    </div>
+
+    <div id="popup-error" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensaje-aviso" class="text"></div>
+        <button class="btn btn-danger btn-aviso">Aceptar</button>
+    </div>
+
+    <div id="popupok" style="display:none" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensajeok" class="text"></div>
+        <button id="btAceptaModal" class="btn btn-success">Aceptar</button>
+    </div>
+
+    <div id="popupCerrarPreCliente" style="display:none" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div>Ha concluido el proceso de captura correctamente, <br />¿Desea enviar la información?</div><br />
+        <button id="btSICerrarPreCliente" class="btn btn-success">SI</button>
+        <button id="btNOCerrarPreCliente" class="btn btn-danger">NO</button>
+    </div>
+
+    <div id="popupDocumentosOk" style="display:none" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div>Documentos cargados</div><br />
+        <div id="dvDocsCargados"></div>
+        <button id="btAceptaModalDoc" class="btn btn-success">Aceptar</button>
+    </div>
+
+    <div id="popupError" style="display:none" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+        <div id="mensajeError" class="text"></div>
+        <button id="btAceptaModalError" class="btn btn-danger btn-aviso">Aceptar</button>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document" style="width:1000px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @*<h5 class="modal-title" id="exampleModalLabel">Carta Encomienda</h5>*@
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="max-height:500px; overflow-y:auto" id="bodyCartaEnc">
+                    <form>
+                        <div class="form-group row" style="margin-bottom:15px">
+                            <div class="col-sm-12">
+                                <input type="text" maxlength="50" ng-model="Membrete" style="text-align:center" class="form-control" id="inlineFormInput1" placeholder="Membrete">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:15px">
+                            <div class="col-sm-2">
+                                <input type="text" maxlength="50" readonly="readonly" class="form-control" id="inlineFormInput2" placeholder="Ciudad">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" maxlength="50" readonly="readonly" class="form-control" id="inlineFormInput3" placeholder="Estado">
+                            </div>
+                            <label class="control-label col-sm-1">a</label>
+                            <div class="col-sm-1">
+                                <input type="text" class="form-control" id="inlineFormInput4" placeholder="Día" readonly="readonly" value="{{FechaActual | date:'dd'}}">
+                            </div>
+                            <label class="control-label col-sm-1">de</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inlineFormInput5" placeholder="Mes" readonly="readonly" value="{{FechaActual | date:'MM'}}">
+                            </div>
+                            <label class="control-label col-sm-1">de</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="inlineFormInput6" placeholder="Año" readonly="readonly" value="{{FechaActual | date:'yyyy'}}">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="control-label col-sm-9 col-sm-offset-3">ASUNTO: Se confiere autorización según la Ley Aduanera para realizar en nuestra representación el despachoaduanal de mercancías. </label>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="control-label col-sm-3">C. AGENTE ADUANAL</label>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:10px">
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="NombrePatente" class="form-control" id="inlineFormInput7" placeholder="Nombre Patente" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:10px">
+                            <label class="control-label col-sm-2">PATENTE</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="selectPatente"
+                                        ng-change="obtenerNombrePatente()"
+                                        ng-options="type.patente+'|'+type.nombre+'|'+type.direccion as type.patente for type in Patentes"
+                                        ng-model="Patente"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="control-label col-sm-3">DIRECCIÓN</label>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:45px">
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="DireccionPatente" class="form-control" id="inlineFormInput8" placeholder="Direcció Patente" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" data-ng-model="modelo.RepresentanteLegal" id="inlineFormInput9" readonly="readonly" placeholder="Representante legal">
+                            </div>
+                            <label class="col-sm-4">en mi carácter de representante legal de</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" data-ng-model="modelo.NombreFiscal" id="inlineFormInput10" readonly="readonly" placeholder="Nombre Fiscal">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-3">con domicilio fiscal ubicado en</label>
+                            <div class="col-sm-3">
+                                <input type="text" maxlength="100" ng-model="Calle" class="form-control" id="inlineFormInput11" placeholder="Calle" readonly="readonly">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" maxlength="10" ng-model="NoExt" class="form-control" id="inlineFormInput12" placeholder="No. Exterior" readonly="readonly">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" maxlength="10" ng-model="NoInt" class="form-control" id="inlineFormInput13" placeholder="No. Interior" readonly="readonly">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" maxlength="50" ng-model="Colonia" class="form-control" id="inlineFormInput14" placeholder="Colonia" readonly="readonly">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <div class="col-sm-3">
+                                <input type="text" maxlength="50" ng-model="Municipio" class="form-control" id="inlineFormInput16" placeholder="Municipio" readonly="readonly">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" maxlength="10" ng-model="CP" class="form-control" id="inlineFormInput17" placeholder="Código Postal" readonly="readonly">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" maxlength="50" ng-model="Ciudad" class="form-control" id="inlineFormInput18" placeholder="Ciudad" readonly="readonly">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" maxlength="50" ng-model="Estado" class="form-control" id="inlineFormInput19" placeholder="Estado" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-8">,  con clave en el Registro Federal de Contribuyentes número </label>
+                            <div class="col-sm-4">
+                                <input type="text" maxlength="10" data-ng-model="modelo.RFC" readonly="readonly" class="form-control" id="inlineFormInput20" placeholder="RFC">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-8">y acreditando lo primeramente expresado mediante escritura pública número</label>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" maxlength="10" ng-model="Escritura" class="form-control" id="inlineFormInput21" placeholder="Escritura">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-4">otorgada ante la Fe del C. Licenciado</label>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" maxlength="100" ng-model="Notario" class="form-control" id="inlineFormInput22" placeholder="Notario">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-4">notario público número</label>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" maxlength="10" ng-model="Notaria" class="form-control" id="inlineFormInput23" placeholder="Notaría">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px">
+                            <label class="col-sm-4">de la ciudad de</label>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" maxlength="50" ng-model="CdNotariado" class="form-control" id="inlineFormInput25" placeholder="Ciudad Notariado">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" maxlength="50" ng-model="EdoNotariado" class="form-control" id="inlineFormInput26" placeholder="Estado Notariado">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px;text-align: justify;">
+                            <label class="col-sm-12">
+                                , y con apoyo en lo dispuesto por los artículos 19 del Código Fiscal de la Federación, y 59, fracción III, segundo párrafo de la Ley Aduanera, en correlación con lo preceptuado en los numerales numerales 1, 6, 10, 11, 23, 25, 27, 28, 32, 34, 35, 36, 36-A, 37, 37-A, 39, 40, 41, 42, 43, 45, 46, 47, 48, 52, 53 fracción II, 54, 58, 59 fracción III, 59-A, 61, 80, 81, 83, 86, 89, 90, 91, 92, 93, 97, 98, 101, 111, 144 fracción III, 150, 151, 152, 153, 154, 157, 158, 161, 162 fracción IV, VI y VII, 203 y demás relativos de dicha Ley, así como los Artículos 71, 81, 202 y 220 del reglamento de la Ley Aduanera, me estoy permitiendo, AUTORIZARLO para que en su carácter de Agente Aduanal y en funciones ante las aduanas que tenga autorizadas por la Administración General de Aduanas (AGA),  por cuenta mía y durante el periodo comprendido entre el día
+                            </label>
+                        </div>
+
+                        <div class="form-group row" style="margin-bottom:15px">
+                            <div class="col-sm-4">
+                                <input type="text" required="required" ng-model="PeriodoInicio" class="form-control datepicker" id="inlineFormInput27" placeholder="Periodo Inicio">
+                            </div>
+                            <label class="col-sm-2">
+                                y el día
+                            </label>
+                            <div class="col-sm-4">
+                                <input type="text" required="required" ng-model="PeriodoFin" class="form-control datepicker" id="inlineFormInput28" placeholder="Periodo Fin">
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:15px;text-align: justify;">
+                            <label class="col-sm-12">
+                                ,se encargue del despacho aduanero en los diferentes regímenes aduaneros previstos en la Ley y que se le indicarán oportunamente. Del mismo modo las facturas comerciales y demás documentos que sean necesarios para efectuar los trámites de importación o exportación, según se trate, serán enviados oportunamente, y equivaldrán los mismos a una autorización complementaria por operación, para que se encargue de lo que en la presente se le autoriza.
+                            </label>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:20px;text-align: justify;">
+                            <label class="col-sm-12">
+                                Adicional a lo señalado  en la presente Carta de Encomienda  y teniendo en cuenta los nuevos procedimientos establecidos en las reglas RGCE 1.1.2, 1.1.3, 1.2.2, 1.5.1, 1.7.3, 1.7.5, 1.9.1, 1.9.16, 1.9.18, 1.9.19, 1.9.20, 2.2.4, 2.2.7, 2.4.1, 2.4.3, 2.4.5, 2.4.7, 2.5.1, 2.5.2, 2.5.3, 3.1.3, 3.1.4, 3.1.5, 3.1.6, 3.1.7, 3.1.8, 3.1.10, 3.1.12, 3.1.13, 3.1.14, 3.1.15, 3.1.16, 3.1.17, 3.1.21, 3.1.22, 3.1.24, 3.1.29, 3.1.30, 3.1.31, 3.1.35,  3.1.36,  3.3.3, 3.3.5, 3.7.21, 3.8.1, 3.8.9, 4.5.5, 4.5.16, 4.5.17, 4.5.29, 4.5.30, 4.6.1, 4.6.5, 4.6.7 y 4.6.9, vigentes otorgamos nuestro consentimiento, para atender los procesos requeridos para nuestras operaciones de comercio exterior así como para designarlo al igual que sus Ejecutivos de Cuenta, como sus capturistas privados con Sello Digital Exclusivo para Comprobantes de Valor Electrónico (COVE) y Digitalización, en el marco de la Ventanilla Única de Comercio Exterior Mexicano (VUCEM) y demás formalidades que demanden el cumplimiento de este proceso relacionadas con todas nuestras operaciones de Comercio Exterior que sean encomendadas y ante cualquier Aduana por donde este Agente Aduanal  tenga representación.
+                                La Captura de Datos del Comprobantes de Valor Electrónico (COVE) o de la Relación de Comprobantes de Valor Electrónico, así como la digitalización de los documentos que se deban de anexar a los Pedimento de Importación o Exportación, se harán por conducto del Agente Aduanal con el Carácter de capturista Privado o con la FIEL del Agente Aduanal de acuerdo la instrucción particular de mi representada señalando  que para que el Agente Aduanal pueda firmar los Comprobantes de Valor Electrónico (COVE), realizara el procedimiento de Solicitud de Certificado Digital (SOLCEDI), para generar la Solicitud de un Sello Digital exclusivos de COVE, a favor del Agente Aduanal, y para ser transmitido ya sea por el Portal de Internet de la Ventanilla Única o mediante Servicio Web, conforme a los lineamientos que rigen la Ventanilla Única de Comercio Exterior Mexicano, que delimitan claramente que este tipo de Sellos Digitales exclusivos para COVES, solo sirven para realizar y firmar Comprobantes de Valor Electrónico a nuestro nombre, aceptando por lo tanto la responsabilidad respecto de la emisión de estos COVES con sello digital, y que reconoceremos como propios.
+                                <br /><br />
+
+                                Manifiesto también que el nombre razón o denominación social de la empresa, domicilio fiscal y el R.F.C. de la misma no han sido modificados ante la autoridad fiscal como también, que la representación legal conferida al suscrito, no ha sido revocada ni modificada total o parcialmente a la fecha de la expedición de la presente carta de encomienda. En caso de que hubiera algún cambio en estos datos y condicionesme obligo a darlo a conocer oportunamente al citado agente aduanal para el correcto llenado de los pedimentos y de los documentos anexados al mismo.
+
+                                <br />
+                                Así mismo, lo autorizamos para que en el referido despacho, y según se trate, efectúe lo siguiente:
+                                <br />
+                                <br />
+                                1.- Nos represente legalmente, en los siguientes casos:
+                                <br />
+                                <br />
+                                a)  En todas las actuaciones que deriven del despacho aduanero de mercancías en el que actúe por cuenta nuestra, siempre que las mismas se celebren dentro del recinto fiscal.
+                                <br />
+                                <br />
+                                b)  En todas las notificaciones que deriven del despacho aduanero de mercancías en el que actúe por cuenta nuestra.
+                                <br />
+                                <br />
+                                c)  Cuando se trate del acta de embargo levantada con motivo del inicio del procedimiento administrativo en materia aduanera a que se refiere el artículo 150 de la Ley Aduanera.
+                                <br />
+                                <br />
+                                d)  Cuando se trate del escrito o el acta circunstanciada en la que consten hechos u omisiones que impliquen la omisión de contribuciones y cuotas compensatorias., y donde se señale que el interesado cuenta con un plazo de 10 días para ofrecer pruebas y alegatos que a su derecho convengan, referido en el artículo 152 de la Ley Aduanera.
+                                <br />
+                                <br />
+                                2.- Promueva toda clase de trámites relacionados con el referido despacho aduanero de nuestras mercancías, ante  autoridades federales, locales y municipales.
+                                <br />
+                                <br />
+                                3.- Compense las contribuciones y cuotas compensatorias que tengamos a nuestro favor contra aquellas que estemos obligados a pagar.
+                                <br />
+                                <br />
+                                4.- Promueva los trámites inherentes al cambio de régimen aduanero cuando así lo acordemos previamente.
+                                <br />
+                                <br />
+                                5.- Promueva los trámites inherentes al desistimiento de régimen aduanero cuando así lo acordemos previamente.
+                                <br />
+                                <br />
+                                6.- Solicite, en su caso, prórroga a los plazos de permanencia en el extranjero, de mercancías exportadas bajo régimen aduanero temporal.
+                                <br />
+                                <br />
+                                7.- Promueva el retorno al extranjero para sustitución de mercancías importadas bajo régimen aduanero definitivo, por haber resultado defectuosas o de especificación distinta a la convenida con el proveedor.
+                                <br />
+                                <br />
+                                8.- Formule y presente pedimentos de rectificación que corrijan errores cometidos en el pedimento que en nuestro nombre promueva., o bien, para declarar datos omitidos. 9.- Solicite fianza de instituciones autorizadas, para garantizar créditos fiscales derivados de la importación de mercancías sujetas a cuotas compensatorias provisionales., en los casos en que así proceda legalmente.
+                                <br />
+                                <br />
+                                10.- Tramite el procedimiento de cancelación de las garantías que hubiésemos otorgado para asegurar créditos fiscales, cuando así corresponda conforme a la Ley.
+                                <br />
+                                <br />
+                                11.- Efectúe en los pedimentos, o en los documentos que se anexen al mismo, el descargo de mercancías importadas o exportadas, bajo régimen aduanero temporal, previo análisis minucioso de la documentación que lo compruebe y que le enviaremos oportunamente para  tales efectos.
+                                <br />
+                                <br />
+                                12.- Nos represente ante el Consejo de Clasificación Arancelaria, en la resolución de consultas que sobre correcta clasificación arancelaria presentemos ante las autoridades aduaneras.
+                                <br />
+                                <br />
+                                13.- Promueva el retorno al extranjero de mercancías importadas temporalmente para ser sometidas a procesos de transformación, elaboración o reparación, sin que se hubiera llevado a cabo dichos procesos, cuando así proceda.
+                                <br />
+                                <br />
+                                14.- Transferir y endosar documentos que estén a su favor o a su nombre, solamente con la autorización expresa y por escrito de nosotros.
+                                <br />
+                                <br />
+
+                                15.- Solicitar la toma de muestras previo al reconocimiento aduanero a efecto de ser presentadas en caso de ser requeridas por las autoridades aduaneras siempre que se trate de mercancías estériles, radiactivas, peligrosas o que se requieran instalaciones especiales para su muestreo.
+                                <br />
+                                <br />
+                                16.- En general, para que promueva ante la aduana de su adscripción y ante aquellas por las que esté autorizado para actuar, toda clase de autorizaciones que se relacionen con el despacho aduanero de mercancías que por nuestra cuenta importe o exporte bajo los diferentes regímenes aduaneros.
+                                <br />
+                                <br />
+                                En lo que respecta a las facturas comerciales, a los documentos que comprueben el cumplimiento de las obligaciones en materia de regulaciones y restricciones no arancelarias, a los documentos con base en el cual se  determine el origen o la procedencia de las mercancías, a las manifestaciones de valor, a los catálogos y demás elementos que permitan identificar la mercancía para su correcta clasificación arancelaria; así como los documentos y demás medios de prueba que permitan determinar correctamente la base gravable y la  determinación de las contribuciones y cuotas compensatorias que deban pagarse., y en general, para el cabal cumplimiento de todas y cada una de las obligaciones y formalidades inherentes a los trámites que por medio de la presente le estamos encomendado, se los haremos llegar con la oportunidad requerida, y por los cuales, nos responsabilizamos ilimitadamente en cuanto a la exactitud de los datos que contengan y a la autenticidad o veracidad de los mismos.
+                            </label>
+                        </div>
+                        <div class="form-group row" style="margin-bottom:5px;text-align: center;">
+                            <label class="col-sm-12">
+                                PROTESTAMOS LO NECESARIO
+                            </label>
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInput29" data-ng-model="modelo.RepresentanteLegal" readonly="readonly" placeholder="Representante legal" style="width: 300px;margin: auto; margin-bottom:5px;text-align:center">
+
+                        <input type="text" class="form-control" id="inlineFormInput30" data-ng-model="modelo.RFC" readonly="readonly" placeholder="RFC" style="width: 300px;margin: auto;text-align:center">
+
+                        <input type="text" class="form-control" id="inlineFormInput31" readonly="readonly" style="width: 500px;margin: auto;margin-top:15px;text-align:center">
+
+                        <div class="form-group row" style="text-align: center;">
+                            <label class="col-sm-12">
+                                REPRESENTANTE LEGAL
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="guardarCamposCartaEnc()" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Guardar</button>
+                    <button type="button" ng-click="generarCartaEnc()" class="btn btn-secondary"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="cargar" class="popup upload" style="display: block; display:none">
+    <i class="fas fa-times btn-close closeall"></i>
+    <div class="caja-cargar text-center">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Elije un archivo.</p>
+        <input id="flsubir" type="file" accept=".pdf,.jpg,.jpeg,.gif" multiple/>
+        <input type="hidden" id="hdTipo" value="" />
+        <input type="hidden" id="hdPreC" value="2" />
+    </div>
+
+    <button id="btnSubirArchivo" class="btn btn-primary closeall">Aceptar</button>
+</div>
+@section scripts{
+    <script src="~/Scripts/plugin/jquery.tablesorter.min.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/registroCliente/datoClienteCtrl.js"></script>
+    <script src="~/Scripts/jsDatosAdicionales.js?ver=7"></script>
+    <script src="~/Scripts/jsDocumentos.js?ver=2"></script>
+
+    <script>
+        var UrlDescargaDoc = "@Url.Action("DescargarDoc", "RegistroCliente")";
+		$(document).ready(function () {
+			$('.datepicker').datepicker({ dateFormat: "dd/mm/yy" });
+
+			// call the tablesorter plugin
+			$("table").tablesorter({
+				// sort on the first column and third column, order asc
+				sortList: [[0, 0], [2, 0]]
+			});
+
+            //camposCartaEncomienta();
+
+           $('.fa-cloud-upload-alt').click(function () {
+
+            $('#cargar').fadeIn('fast');
+            $('.popupoverlay').fadeIn('fast');
+
+        });
+
+        });
+        function camposCartaEncomienta() {
+            $('#exampleModal').modal('show');
+        }
+
+    </script>
+}

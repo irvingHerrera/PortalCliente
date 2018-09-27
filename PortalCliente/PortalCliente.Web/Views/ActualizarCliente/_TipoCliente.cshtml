@@ -1,0 +1,53 @@
+﻿@using PortalCliente.Core.Enum;
+
+<div class="form-sections">
+    <h3 class="subtitle">Tipo Cliente</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group text-center">
+                <span class="text">
+
+                    <input type="radio" id="ped" name="cc" class="tipo-cliente" 
+                           data-ng-model="modelo.TipoCliente" data-ng-value="@((int)TipoCliente.Pedimiento)" onclick="cambiarEtiqueta('Pedimento')"/>
+                    <label for="ped" id="l1"><span><div></div></span>Pedimento</label>
+
+                    <input type="radio" id="fact" name="cc" class="tipo-cliente" 
+                           data-ng-model="modelo.TipoCliente" data-ng-value="@((int)TipoCliente.Factura)" onclick="cambiarEtiqueta('Factura')"/>
+                    <label for="fact" id="l2"><span><div></div></span>Factura</label>
+
+                    <input type="radio" id="ped-fact" name="cc" class="tipo-cliente" 
+                           data-ng-model="modelo.TipoCliente" data-ng-value="@((int)TipoCliente.PedimientoFactura)" />
+                    <label for="ped-fact" id="l3"><span><div></div></span>Pedimento-Factura</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-margin-lateral">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">RFC de Servicios de la sociedad que va a facturar</div>
+                <input type="text" class="form-control" placeholder="" id="in3" data-ng-model="modelo.RFC">
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-margin-lateral" data-ng-hide="model.TipoCliente == @((int)TipoCliente.PedimientoFactura)">
+        <div class="col-sm-6">
+            <div class="form-group nombre-alta">
+                <div class="tag-text">Nombre Cliente Alta</div>
+                <input type="text" class="form-control" placeholder="" id="in4" data-ng-model="modelo.NombreCliente">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group cliente-pedimento">
+                <div class="tag-text">Cliente <span id="etiqueta">Pedimento</span> </div>
+                <input type="text" class="form-control" placeholder="" id="in5" data-ng-model="modelo.ClientePedimento">
+            </div>
+        </div>
+    </div>
+
+</div>

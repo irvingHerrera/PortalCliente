@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .input-edit input:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .input-edit textarea:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled select::-ms-expand {
+        display: none;
+    }
+
+    .popup {
+        position: fixed;
+        top: 25%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Captura de cliente test</h1>
+    </div>
+</div>
+
+
+<div style="margin-bottom:15px">
+    @{Html.RenderAction("BusquedaPrecliente", "Notificacion");}
+</div>
+
+<div class="row menu-sections no-margin-lateral" style="margin-top: 20px;">
+    <div class="btn-operaciones-cont">
+        <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)"><i id="icon-t1-1" class="far fa-list-alt iconpasos"></i> Registro cliente</button>
+    </div>
+    <div class="btn-operaciones-cont">
+        <button id="paso2" class="btn-operaciones" onclick="showPaso(2)"><i id="icon-t1-2" class="fas fa-table"></i> Tabulador</button>
+    </div>
+    <div class="btn-operaciones-cont">
+        <button id="paso4" class="btn-operaciones last" onclick="showPaso(4)"><i id="icon-t1-4" class="fas fa-list-ol"></i> Procedimiento de operación</button>
+    </div>
+</div>
+
+<div>
+    <div id="cont-paso1" class="cont-datos captura" data-ng-controller="capturaClienteTestCtrl" data-ng-init="init()">
+        <div id="cont-paso-in1" style="overflow: hidden;position: relative;">
+            <div class="col-sm-1">
+                <button class="btn btn-success" data-ng-click="test()">test</button>
+            </div>
+            @{Html.RenderPartial("_DatosCliente");}
+
+            @{Html.RenderPartial("_DatosContacto");}
+
+            @{Html.RenderPartial("_DatosBancarios");}
+
+            @{Html.RenderPartial("_DatosInfAdicional");}
+
+            @{Html.RenderPartial("_DatosCuestionario");}
+
+            @{Html.RenderPartial("_DatosDocumentos");}
+
+
+            <div class="col-sm-12 text-right" data-ng-show="inputDisable">
+                <button id="terminar2-1" class="btn btn-primary"> Terminar</button>
+            </div>
+
+            <div class="col-sm-12 text-right" data-ng-hide="inputDisable">
+                <button class="btn btn-primary" data-ng-click="guardarEdicion()"> Guardar</button>
+            </div>
+
+            <br><br><br>
+        </div>
+
+        <div id="cargar" class="popup upload" style="display: block; display:none">
+            <i class="fas fa-times btn-close closeall"></i>
+            <div class="caja-cargar text-center">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Elije un archivo.</p>
+                <input type="file" accept=".pdf,.jpg,.jpeg,.gif"
+                       onchange="angular.element(this).scope().setFile(this)" />
+            </div>
+
+            <button class="btn btn-primary closeall" data-ng-disabled="!activarSubir"
+                    data-ng-click="subirArchivo()">
+                Aceptar
+            </button>
+        </div>
+
+    </div>
+
+    <div id="cont-paso2" class="cont-datos captura" style="display: none;"></div>
+
+    <div data-ng-controller="procedimientoOperacionCtrl" data-ng-init="init()">
+        @{Html.RenderPartial("_ProcedimientoOperacion");}
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/plugin/jquery.tablesorter.min.js"></script>
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/capturaClienteTestCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/capturaCliente/procedimientoOperacionCtrl.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // call the tablesorter plugin
+            $("table").tablesorter({
+                // sort on the first column and third column, order asc
+                sortList: [[0, 0], [2, 0]]
+            });
+
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+}

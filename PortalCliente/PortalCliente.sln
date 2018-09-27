@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalCliente.Web", "PortalCliente.Web\PortalCliente.Web.csproj", "{1D43E06D-47CB-4155-A987-E60A580A0B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalCliente.Core", "PortalCliente.Core\PortalCliente.Core.csproj", "{9B0C8F8F-5778-4701-8B05-4DCC8036EF2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalCliente.Data", "PortalCliente.Data\PortalCliente.Data.csproj", "{900EC5AB-356E-4F40-B648-856398521F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalCliente.Business", "PortalCliente.Business\PortalCliente.Business.csproj", "{82F1949B-2AC6-4B98-B2EC-4A7F5BAC08E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D43E06D-47CB-4155-A987-E60A580A0B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D43E06D-47CB-4155-A987-E60A580A0B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D43E06D-47CB-4155-A987-E60A580A0B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D43E06D-47CB-4155-A987-E60A580A0B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0C8F8F-5778-4701-8B05-4DCC8036EF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0C8F8F-5778-4701-8B05-4DCC8036EF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0C8F8F-5778-4701-8B05-4DCC8036EF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0C8F8F-5778-4701-8B05-4DCC8036EF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{900EC5AB-356E-4F40-B648-856398521F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900EC5AB-356E-4F40-B648-856398521F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900EC5AB-356E-4F40-B648-856398521F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900EC5AB-356E-4F40-B648-856398521F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F1949B-2AC6-4B98-B2EC-4A7F5BAC08E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F1949B-2AC6-4B98-B2EC-4A7F5BAC08E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F1949B-2AC6-4B98-B2EC-4A7F5BAC08E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F1949B-2AC6-4B98-B2EC-4A7F5BAC08E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {484E222C-D058-4A24-84C3-60C0C4E695F8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://proyectosoc.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PortalCliente.Web\\PortalCliente.Web.csproj
+		SccProjectName1 = PortalCliente.Web
+		SccLocalPath1 = PortalCliente.Web
+		SccProjectUniqueName2 = PortalCliente.Core\\PortalCliente.Core.csproj
+		SccProjectName2 = PortalCliente.Core
+		SccLocalPath2 = PortalCliente.Core
+		SccProjectUniqueName3 = PortalCliente.Data\\PortalCliente.Data.csproj
+		SccProjectName3 = PortalCliente.Data
+		SccLocalPath3 = PortalCliente.Data
+		SccProjectUniqueName4 = PortalCliente.Business\\PortalCliente.Business.csproj
+		SccProjectName4 = PortalCliente.Business
+		SccLocalPath4 = PortalCliente.Business
+	EndGlobalSection
+EndGlobal

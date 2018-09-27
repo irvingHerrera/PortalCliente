@@ -1,0 +1,61 @@
+﻿@using PortalCliente.Core.ViewModel
+@model List<BusquedaPreclienteViewModel>
+
+<style>
+
+    .select2 > .select2-choice.ui-select-match {
+        /* Because of the inclusion of Bootstrap */
+        height: 30px;
+    }
+
+    .selectize-control > .selectize-dropdown {
+        top: 36px;
+    }
+
+    .select2-container .select2-choice {
+        background-image:none;
+    }
+
+        .select2-container .select2-choice .select2-arrow {
+            border-left:none;
+            background:none;
+            background-image:none;
+        }
+
+</style>
+
+<div class="row" data-ng-controller="busquedaPreclienteCtrl"
+     data-ng-init="init(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">
+
+    <div class="col-md-6">
+        <ui-select data-ng-model="selectPrecliente.selected" theme="select2"
+                   style="min-width: 400px;"
+                   append-to-body="true"
+                   title="Búsqueda de Precliente">
+            <ui-select-match placeholder="Busqueda precliente por identificador...">{{$select.selected.IdPreclienteVisual}}</ui-select-match>
+            <ui-select-choices repeat="precliente in listaPrecliente | filter: {IdPreclienteVisual:$select.search}">
+                <div style="font-weight:bold" data-ng-bind-html="precliente.NombreComercial | highlight: $select.search"></div>
+                <small>
+                    <span> @(ViewBag.isCliente != null ? "Id Cliente": "Id Precliente")  {{ precliente.IdPreclienteVisual}}</span>
+                </small>
+            </ui-select-choices>
+        </ui-select>
+
+    </div>
+
+    <div class="col-md-6">
+        <ui-select data-ng-model="selectPrecliente.selected" theme="select2"
+                   style="min-width: 400px;"
+                   append-to-body="true"
+                   title="Búsqueda de Precliente">
+            <ui-select-match placeholder="Busqueda precliente por nombre...">{{$select.selected.NombreComercial}}</ui-select-match>
+            <ui-select-choices repeat="precliente in listaPrecliente | filter: {NombreComercial:$select.search}">
+                <div style="font-weight:bold" data-ng-bind-html="precliente.NombreComercial | highlight: $select.search"></div>
+                <small>
+                    <span>Id Precliente: {{precliente.IdPreclienteVisual}}</span>
+                </small>
+            </ui-select-choices>
+        </ui-select>
+
+    </div>
+</div>

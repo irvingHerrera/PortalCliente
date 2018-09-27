@@ -1,0 +1,67 @@
+﻿
+<div class="form-sections">
+
+    <h3 class="subtitle">Tarifa de ventas de posibles servicios</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Servicio <i class="fa fa-angle-down"></i></th>
+                            <th>Tarifa <i class="fa fa-angle-down"></i></th>
+                            <th>Notas <i class="fa fa-angle-down"></i></th>
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    <tbody id="numbersTarifas">
+                        
+                        <tr class="table-rows" ng-repeat="i in modelo.TarifaServicio" id="fila{{$index + 1}}t">
+                            <td class="input-edit">
+                                <select class="form-control" name="state" data-ng-model="i.Servicio" disabled>
+                                    <option value="">Seleccionar</option>
+                                    <option value="Rectificaciones">Rectificaciones</option>
+                                    <option value="Refacturaciones">Refacturaciones</option>
+                                    <option value="Tarimas">Tarimas</option>
+                                    <option value="Barrotes">Barrotes</option>
+                                    <option value="Reexpediciones">Reexpediciones</option>
+                                    <option value="Etiquetado">Etiquetado</option>
+                                    <option value="Separaciones">Separaciones</option>
+                                    <option value="Horaextranormal">Hora extra normal</option>
+                                    <option value="Horaextrapremium">Hora extra premium</option>
+                                    <option value="Almacenaje">Almacenaje</option>
+                                    <option value="Falsomanejo">Falso manejo</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Tarifa" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Notas" disabled></td>
+                            @*<td data-ng-hide="inputDisable">
+                                <i id="save{{$index + 1}}t" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaTarifaServicio(($index + 1)+'t')">
+                                    <span class="tooltip">Guardar</span>
+                                </i><i id="edit{{$index + 1}}t" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaTarifaServicio(($index + 1)+'t')">
+                                    <span class="tooltip">Editar</span>
+                                </i>
+                                <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaTarifaServicio($index)">
+                                    <span class="tooltip">Borrar</span>
+                                </i>
+                            </td>*@
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Estimado de ventas promedio mensual</div>
+                <input type="number" class="form-control datos" placeholder="" id="in39" data-ng-model="modelo.EstimadoVenta">
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,124 @@
+﻿
+<div class="form-sections">
+    <div class="col-sm-12">
+        <h3 class="subtitle">Datos bancarios</h3>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Banco</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in15" data-ng-model="modelo.Banco">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Cuenta</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in16" data-ng-model="modelo.NumeroCuenta">
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Clabe</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in17" data-ng-model="modelo.ClabeInterbancaria">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Moneda</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in18" data-ng-model="modelo.Moneda">
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Sucursal</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in19" data-ng-model="modelo.SucursalBanco">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Ciudad</div>
+            <input type="text" class="form-control"
+                   placeholder="" id="in20" data-ng-model="modelo.CiudadBanco">
+        </div>
+    </div>
+
+
+    <div class="col-sm-12" style="margin-top: 20px;">
+        <div class="form-group">
+            <div class="tag-text">Cuenta bancaria autorizada para el pago de pedimentos y formularios múltiples (PECA)</div>
+
+            <div class="table-responsive">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Banco <i class="fa fa-angle-down"></i></th>
+                            <th>No. cuenta <i class="fa fa-angle-down"></i></th>
+                            <th>Identificador <i class="fa fa-angle-down"></i></th>
+                            <th>Patentes autorizadas <i class="fa fa-angle-down"></i></th>
+                            <th>Aduana <i class="fa fa-angle-down"></i></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers2">
+                        <tr class="table-rows">
+                            <td>
+                                <input type="text" class="form-control" autocomplete="foo"
+                                       placeholder="" id="banco-in" data-ng-model="banco.Banco">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" autocomplete="foo"
+                                       placeholder="" id="cuenta-in" data-ng-model="banco.NumeroCuenta">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" autocomplete="foo"
+                                       placeholder="" id="identificador-in" data-ng-model="banco.Identificador">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" autocomplete="foo"
+                                       placeholder="" id="patentes-in" data-ng-model="banco.PatentesAutorizadas">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" autocomplete="foo"
+                                       placeholder="" id="aduana-in" data-ng-model="banco.Aduana">
+                            </td>
+                            <td>
+                                <i id="add-tr2" class="fas fa-plus boxtool" data-ng-click="agregarBanco(banco)">
+                                    <div class="tooltip">Agregar</div>
+                                </i>
+                            </td>
+                        </tr>
+
+                        <tr data-ng-repeat="item in modeloBanco" class="table-rows" id="fila{{$index + 1}}b">
+                            <td><input type="text" class="form-control" data-ng-model="item.Banco" disabled=""></td>
+                            <td><input type="text" class="form-control" data-ng-model="item.NumeroCuenta" disabled=""></td>
+                            <td><input type="text" class="form-control" data-ng-model="item.Identificador" disabled=""></td>
+                            <td><input type="text" class="form-control" data-ng-model="item.PatentesAutorizadas" disabled=""></td>
+                            <td><input type="text" class="form-control" data-ng-model="item.Aduana" disabled=""></td>
+                            <td>
+                                <i id="save{{$index + 1}}b" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaBanco(($index + 1)+'b')">
+                                    <div class="tooltip">Guardar</div>
+                                </i>
+                                <i id="edit{{$index + 1}}b" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaBanco(($index + 1)+'b')">
+                                    <div class="tooltip">Editar</div>
+                                </i>
+                                <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaBanco($index)">
+                                    <div class="tooltip">Borrar</div>
+                                </i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="req-table2" class="requerido">Debes capturar por lo menos un registro</div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,217 @@
+﻿<div class="row">
+    <div class="col-sm-12 tag-text renglon-separador text-bold">4. Elaboración de pedimento</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Tipo de Pedimento</div>
+            <select data-ng-model="Procedimiento.Id_TipodePedimento" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.TipoPedimentoCat" >
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">Régimen</div>
+            <select  data-ng-model="Procedimiento.Id_Regimen" 
+                     class="form-control ddlreqpo{{$index + 1}}" 
+                     name="state"
+                    disabled
+                     ng-options="item.Id as item.Descripcion for item in Procedimiento.RegimensCat">
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div class="tag-text">Manejo de Pedimento</div>
+            <select data-ng-model="Procedimiento.Id_ManejodePedimento" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.ManejoPedimientoCat">
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Incoterm</div>
+            <select data-ng-model="Procedimiento.Id_Incoterm" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.IncotermsCat" >
+			</select>
+
+		</div>
+
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Método de valoración</div>
+            <select data-ng-model="Procedimiento.Id_MetodoValoracion" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.MetodoValoracionsCat" >
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-3">
+		<div class="form-group input-edit">
+			<div class="tag-text">Forma de pago</div>
+			<select data-ng-model="Procedimiento.Id_FormaPago"
+					class="form-control ddlreqpo{{$index + 1}}"
+					name="state"
+                    disabled
+					ng-options="item.Id as item.Descripcion for item in Procedimiento.FormaPagosCat">
+			</select>
+		</div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Vinculación</div>
+            <select data-ng-model="Procedimiento.Vinculacion" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.VinculacionCat" >
+			</select>
+
+		</div>
+
+	</div>
+
+	<div class="col-sm-3">
+		<div class="form-group input-edit">
+			<div class="tag-text">Aplicación de Preferencias</div>
+			<select data-ng-model="Procedimiento.Id_AplicacionPreferencias" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.AplicacionPreferenciaCat" >
+			</select>
+		</div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Aplicación de TLCAN</div>
+            <select data-ng-model="Procedimiento.AplicacionTLCAN" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.AlicacionTLCANCat">
+			</select>
+		</div>
+
+	</div>
+
+	<div class="col-sm-3"> 
+        <div class="form-group input-edit">
+            <div  class="tag-text">Incrementables</div>
+            <select data-ng-model="Procedimiento.Incrementables" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.IncrementablesCat" >
+			</select>
+
+		</div>
+
+	</div>
+
+	<div class="col-sm-3">
+        <div class="form-group input-edit">
+            <div  class="tag-text">Envío de proforma a autorización</div>
+            <select data-ng-model="Procedimiento.EnvioProformaAutorizacion" 
+                    class="form-control ddlreqpo{{$index + 1}}" 
+                    name="state"
+                    disabled
+                    ng-options="item.Id as item.Descripcion for item in Procedimiento.EnvioProformaAutorizacionCat" >
+			</select>
+
+		</div>
+
+	</div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="tag-text renglon-separador text-bold">Generación de acuse de COVE y acuse de Edocuments con los sellos de {{TipoCliente}}</div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <span class="tag-text">Grupo EI genera el EEI (Electronic Export Information)</span>
+            <select  data-ng-model="Procedimiento.GrupoGeneralEEI"
+                     class="form-control ddlreqpo{{$index + 1}}" 
+                     name="state"
+                    disabled
+                     ng-options="item.Id as item.Descripcion for item in Procedimiento.GrupoGeneralEEICat">
+			</select>
+
+		</div>
+
+	</div>
+
+	<div class="col-sm-6"></div>
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="tag-text renglon-separador text-bold">Forma de cargo para pago de impuestos en pedimento</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th class="header">Banco</th>
+                        <th class="header">Cuenta</th>
+                        <th class="header">Identificador</th>
+                        <th ifass="header">Aduana</th>
+
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+
+					<tr class="table-rows" data-ng-repeat="cuenta in Procedimiento.Cuentas">
+                        <td>{{cuenta.Banco}}</td>
+                        <td>{{cuenta.NumeroCuenta}}</td>
+                        <td>{{cuenta.Identificador}}</td>
+                        <td>{{cuenta.Aduana}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group input-edit">
+            <div class="tag-text">Observaciones específicas</div>
+            <input data-ng-model="Procedimiento.ObservacionesEspecificasEP"
+                   type="text" 
+                   disabled
+                   class="form-control datos reqpo{{$index + 1}}" 
+                   placeholder="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿<div class="form-sections">
+    <div class="col-sm-12">
+        <h3 class="subtitle">Información de contactos</h3>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="table-responsive">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Área <i class="fa fa-angle-down"></i></th>
+                            <th>Nombre <i class="fa fa-angle-down"></i></th>
+                            <th>Email <i class="fa fa-angle-down"></i></th>
+                            <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                            <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                            <th data-ng-hide="inputDisable"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers">
+
+                        <tr class="table-rows">
+                            <td>
+                                <input type="text" class="form-control"
+                                       placeholder="" id="area-in" data-ng-model="contacto.Area">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control"
+                                       placeholder="" id="nombre-in" data-ng-model="contacto.Nombre">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control"
+                                       placeholder="" id="email-in" data-ng-model="contacto.Correo">
+                            </td>
+                            <td>
+                                <input type="tel" class="form-control"
+                                       placeholder="" id="telefono-in" data-ng-model="contacto.Telefono">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control"
+                                       placeholder="" id="telefono-in" data-ng-model="contacto.PuestoDepartamento">
+                            </td>
+                            <td>
+                                <i id="add-tr" class="fas fa-plus boxtool" data-ng-click="agregarContacto(contacto)">
+                                    <span class="tooltip">Agregar</span>
+                                </i>
+                            </td>
+                        </tr>
+
+                        <tr class="table-rows" ng-repeat="i in model.DatosCliente.Contacto" id="fila{{$index + 1}}">
+                            <td><input type="text" class="form-control" data-ng-model="i.Area" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Nombre" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Correo" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Telefono" disabled></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.PuestoDepartamento" disabled></td>
+                            <td>
+                                <i id="save{{$index + 1}}" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaContacto($index + 1)">
+                                    <span class="tooltip">Guardar</span>
+                                </i><i id="edit{{$index + 1}}" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaContacto($index + 1)">
+                                    <span class="tooltip">Editar</span>
+                                </i>
+                                <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaContacto($index)">
+                                    <span class="tooltip">Borrar</span>
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="req-table1" class="requerido">Debes capturar por lo menos un registro</div>
+    </div>
+</div>

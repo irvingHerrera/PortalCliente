@@ -1,0 +1,45 @@
+﻿<div class="form-sections">
+    <h3 class="subtitle">Procesos operativos realizados </h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador">
+                <div class="text renglon-separador">
+                    <input type="checkbox" id="factchecksi1" name="cc1" class="factcheck" data-ng-model="modelo.ADUASIS"/>
+                    <label for="factchecksi1" id="ADUASIS_SO"><span><div></div></span>Aduasis</label>
+                </div>
+                <div class="text renglon-separador">
+                    <input type="checkbox" id="factcheckno1" name="cc1" class="factcheck" data-ng-model="modelo.GP"/>
+                    <label for="factcheckno1" id="GP_SO"><span><div></div></span>GP</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-sections">
+    <h3 class="subtitle">Envío de tabuladores a equipo</h3>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="tag-text">Equipo</div>
+            <div class="form-group">
+                @*<input type="text" id="Equipo_SO" class="form-control datos" placeholder="" data-ng-model="modelo.Equipo">*@
+                <select class="form-control datos" id="Equipo_SO"
+                        data-ng-options="estado as estado.Descripcion for estado in catalogoEquipoOperativo"
+                        data-ng-model="modelo.Equipo">
+                    <option value="">Selecciona un Equipo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-8">
+            <div class="tag-text" id="Correos_SO">Correos <i class="fas fa-info-circle icon boxtool"><div class="tooltip medium">Da enter para agregar correo</div></i></div>
+            <div id="lista-emails" class="cont-email">
+                <input id="addmails" type="email" name="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 text-right">
+    <button id="guardarSO" class="btn btn-primary terminar2-3" data-ng-click="guardarSistemasOperativos()"><i class="far fa-save"></i> Terminar</button>
+</div>
+<br><br><br>

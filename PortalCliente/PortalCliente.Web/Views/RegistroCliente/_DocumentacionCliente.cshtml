@@ -1,0 +1,218 @@
+﻿
+
+	<div class="form-sections">
+
+		<div class="row">
+			<div class="col-sm-7">
+				<h3 class="subtitle">Documentos para el expediente del cliente</h3>
+			</div>
+			<div class="col-sm-2">
+				<h3 class="subtitle">Se requiere</h3>
+			</div>
+			<div class="col-sm-3">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc1"  class="text">
+					Carta Encomienda de la patente titular <i class="fas fa-info-circle icon boxtool">
+						<div class="tooltip big">
+							El documento se requiere en original con firma autógrafa del representante y/o apoderado legal en tinta azul y en hoja membretada.<br>
+							Si son varias patentes para registrar, favor de realizar el mismo proceso por patente. Puede consultarse el listado de patentes.
+						</div>
+					</i>
+					<i class="fas fa-file-alt icon boxtool carta" data-toggle="modal" data-target="#exampleModal"><div class="tooltip">Captura carta</div></i>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Original</div>
+			</div>
+			<div onclick="setIDdoc(1);" class="col-sm-3 text-center">
+				<div id="dvDoc1">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-5">
+				<div  id="dvnamedoc2"  class="text">
+					Carta Encomienda de la patente de respaldo <i class="fas fa-info-circle icon boxtool">
+						<div class="tooltip big">
+							El documento se requiere en original con firma autógrafa del representante y/o apoderado legal en tinta azul y en hoja membretada.<br>
+							Si son varias patentes para registrar, favor de realizar el mismo proceso por patente. Puede consultarse el listado de patentes.<br>
+							<strong>Nota:</strong> Si no se incluye el documento, es decir que se seleccionó la opción NO, deberá indicar de manera forzosa el motivo por el cual no se incluye dicho documento.
+						</div>
+					</i>
+				</div>
+
+			</div>
+			<div class="col-sm-2 no-padding">
+				<div class="col-sm-12 text-center no-padding">
+
+					<input type="radio" id="mot1si" name="de1" class="mot1" checked="">
+					<label for="mot1si"><span><div></div></span>SI</label>
+
+					<input type="radio" id="mot1no" name="de1" class="mot1">
+					<label for="mot1no"><span><div></div></span>NO</label>
+
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Original</div>
+			</div>
+			<div onclick="setIDdoc(2);" class="col-sm-3 text-center">
+				<div id="dvDoc2">
+					<i class="fas fa-cloud-upload-alt icon boxtool motivo20"><div class="tooltip">Cargar</div></i>
+				</div>
+				<textarea id="motivo1" class="form-control" placeholder="Redactar motivo por el cual no envía la encomienda de respaldo" style="display: none;"></textarea>
+
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc3" class="text">Constancia de situación del cliente <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Se podrá contemplar además de la constancia, la cédula de identificación fiscal y/o acuse de movimientos de actualización de situación fiscal (Se podrán descargar en la página https://www.siat.sat.gob.mx/PTSC/ , en el apartado de “servicios”) con fecha de impresión no mayor a dos meses. Y deberá asegurarse que contenga RFC, Dirección fiscal y Código bidimensional.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(3);" class="col-sm-3 text-center">
+				<div id="dvDoc3">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc4" class="text">Comprobante de domicilio de la empresa no mayor a 2 meses <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Solo se aceptan comprobantes de luz, agua, teléfono fijo y gas. En caso que los comprobantes de domicilio, se encuentren a nombre de un tercero, agregar copia del contrato de arrendamiento o contrato comodato.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(4);" class="col-sm-3 text-center">
+				<div id="dvDoc4">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc5" class="text">Acta constitutiva de la empresa <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Este documento se requiere con registro público de la propiedad y de comercio y solo aplica para persona moral.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(5);" class="col-sm-3 text-center">
+				<div id="dvDoc5">
+				 <i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+			   </div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc6" class="text">Poder Notarial del representante y/o apoderado legal <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Será considerado en actos administrativos como mínimo.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(6);" class="col-sm-3 text-center">
+				<div id="dvDoc6">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc7" class="text">Identificación oficial con foto y firma <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">La vigencia deberá ser mayor a un año como mínimo y podrá ser IFE, INE, pasaporte, cédula profesional y únicamente aplica para el representante y/o apoderado legal. En caso de ser extranjero, presentar documento que acredite su legal estancia en el país (FM1, FM2 y FM3)</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(7);" class="col-sm-3 text-center">
+				<div  id="dvDoc7">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc8" class="text">RFC  del representante legal <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Impresión reciente.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(8);" class="col-sm-3 text-center">
+				<div id="dvDoc8">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc9" class="text">Encargo Conferido a favor de cada uno de los agentes aduanales <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Se puede decargar con la FIEL o contraseña en la siguiente liga https://www.sait.sat.gob.mx/PTSC/, apartado RFC/Importadores y Sectores específicos / Actualización de Encargos Conferidos. Para mayor información sobre lo que es un encargo conferido, puede consultar la siguiente liga: http://www.sat.gob.mx/aduanas/importando_exportando/guia_importación/Paginas/encargo_conferido_al_agente_aduanal.aspx)</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">PDF/Copia</div>
+			</div>
+			<div onclick="setIDdoc(9);" class="col-sm-3 text-center">
+				<div id="dvDoc9">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="dvnamedoc10"  class="text">Fotografías recientes del establecimiento <i class="fas fa-info-circle icon boxtool"><div class="tooltip big">Las fotos se requieren de la fachada y si es posible del interior, así como también, pueden ser fotografías de publicidad.</div></i></div>
+			</div>
+			<div class="col-sm-2">
+				<div class="text">JPG-PNG-GIF</div>
+			</div>
+			<div onclick="setIDdoc(10);" class="col-sm-3 text-center">
+				<div id="dvDoc10">
+					<i class="fas fa-cloud-upload-alt icon boxtool"><div class="tooltip">Cargar</div></i>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="col-sm-12 text-right">
+		<button id="guardar4" class="btn btn-primary"> Terminar</button>
+	</div>
+	<br><br><br>
+
+    <div id="popup-error" class="popup">
+        <i class="fas fa-times btn-close"></i>
+        <div class="icon"><i class=""></i></div>
+        <div id="mensaje-aviso" class="text"></div>
+        <button class="btn btn-danger btn-aviso">Aceptar</button>
+    </div>
+

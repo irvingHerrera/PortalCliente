@@ -1,0 +1,20 @@
+﻿<div class="row" style="margin-top: 10px;margin-bottom:15px;">
+    <div class="col-md-12">
+        <div class="table-responsive tabla-aprobador" data-ng-show="listaAprobador.length > 0">
+            <table class="tablesorter table table-striped table-bordered table-hover" style="margin:0;">
+                <thead class="table-rows star">
+                    <tr>
+                        <th class="header">Nombre Aprobador</th>
+                        <th class="header">Observacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-rows" data-ng-repeat="aprobador in listaAprobador track by $index">
+                        <td class="ng-binding">{{aprobador.Aprobador}}</td>
+                        <td class="ng-binding">{{aprobador.Observacion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

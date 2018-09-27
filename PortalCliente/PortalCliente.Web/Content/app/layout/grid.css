@@ -1,0 +1,105 @@
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+/*	Grid */
+
+.row {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	display: table;
+	content: " ";
+	clear: both;
+	width: 100%;
+}
+
+
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16 {
+	float: left;
+	padding: 10px;
+	box-sizing: border-box;
+	position: relative;
+	min-height: 1px;
+}
+
+.col-1 {
+	width: 6.25%;
+}
+
+.col-2 {
+	width: 12.5%;
+}
+
+.col-3 {
+	width: 18.75%;
+}
+
+.col-4 {
+	width: 25%;
+}
+
+.col-5 {
+	width: 31.25%;
+}
+
+.col-6 {
+	width: 37.5%;
+}
+
+.col-7 {
+	width: 43.75%;
+}
+
+.col-8 {
+	width: 50%;
+}
+
+.col-9 {
+	width: 56.25%;
+}
+
+.col-10 {
+	width: 62.5%;
+}
+
+.col-11 {
+	width: 68.75%;
+}
+
+.col-12 {
+	width: 75%;
+}
+
+.col-13 {
+	width: 81.25%;
+}
+
+.col-14 {
+	width: 87.5%;
+}
+
+.col-15 {
+	width: 93.75%;
+}
+
+.col-16 {
+	width: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+  	.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15, .col-16 {
+  		width: 100%;
+		padding: 0 5px;
+		box-sizing: border-box;
+		position: relative;
+
+		margin:5px 0;
+	}
+}

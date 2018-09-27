@@ -1,0 +1,228 @@
+.cssmenu,
+.cssmenu ul,
+.cssmenu ul li,
+.cssmenu ul li a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.cssmenu {
+    width: 100%;
+    color: #ffffff;
+}
+
+    .cssmenu ul ul {
+        display: none;
+    }
+
+.align-right {
+    float: right;
+}
+
+.cssmenu > ul > li > a {
+    color: #fff;
+    padding: 20px 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cssmenu > ul > li.open > a {
+    border-left: 3px solid #ea4639;
+    background-color: #1A2328;
+    color: #fff;
+}
+
+    .cssmenu > ul > li.open > a.active {
+        border-left: 3px solid #ea4639;
+        background-color: #1A2328;
+        color: #fff;
+    }
+
+.cssmenu > ul > li > a:hover {
+    background-color: #1f2a2f;
+}
+
+.cssmenu > ul > li > a i {
+    font-size: 1.2em;
+}
+
+
+.cssmenu > ul > li.open > a .holder::after {
+    font-family: FontAwesome;
+    content: "-";
+    font-size: 12px;
+}
+
+.cssmenu > ul > li > a.active {
+    background-color: #f8f8f8;
+    color: #4a5863;
+    border-left: 3px solid #ea4639;
+}
+
+
+.holder {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+    .holder::after {
+        font-family: FontAwesome;
+        font-size: 12px;
+        display: block;
+        position: absolute;
+        content: "+";
+        width: 6px;
+        height: 6px;
+        right: 20px;
+        z-index: 10;
+        top: 22px;
+        /*-webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);*/
+    }
+/*.holder::after {
+  top: 22px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+}
+.holder::before {
+  top: 18px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-top-color: inherit;
+  border-left-color: inherit;
+}*/
+
+.cssmenu ul ul li a {
+    cursor: pointer;
+    padding: 20px;
+    z-index: 1;
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    background: #37414a;
+    border-left: 3px solid #ea4639;
+}
+
+.cssmenu ul ul li > a:hover {
+    background: #424852;
+    color: #ffffff;
+}
+
+.cssmenu ul ul li a::after {
+    font-family: FontAwesome;
+    float: left;
+    content: ">";
+    margin-right: 5px;
+    color: #ea4639;
+}
+
+.cssmenu ul ul li > a.active {
+    background-color: #fff;
+    color: #4a5863;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.cssmenu ul ul li:first-child > a {
+    box-shadow: none;
+}
+
+.cssmenu ul ul ul li:first-child > a {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cssmenu ul ul ul li a {
+    padding-left: 40px;
+}
+
+.cssmenu > ul > li > ul > li:last-child > a,
+.cssmenu > ul > li > ul > li.last > a {
+    border-bottom: 0;
+}
+
+.cssmenu > ul > li > ul > li.open:last-child > a,
+.cssmenu > ul > li > ul > li.last.open > a {
+    /*border-bottom: 1px solid #32373e;
+  border-top: 1px solid #32373e;*/
+    background-color: #404751;
+}
+
+    .cssmenu > ul > li > ul > li.open:last-child > a::after,
+    .cssmenu > ul > li > ul > li.last.open > a::after {
+        font-family: FontAwesome;
+        content: "\f068";
+        font-size: 10px;
+    }
+
+.cssmenu > ul > li > ul > li.open:last-child > ul > li:last-child > a {
+    border-bottom: 0;
+}
+
+.cssmenu ul ul li.has-sub > a::after {
+    font-family: FontAwesome;
+    font-size: 10px;
+    display: block;
+    position: absolute;
+    content: "\f067";
+    width: 5px;
+    height: 5px;
+    right: 20px;
+    z-index: 10;
+    top: 22px;
+    /*border-top: 2px solid #eeeeee;
+  border-left: 2px solid #eeeeee;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);*/
+}
+
+.cssmenu ul ul li.active > a::after,
+.cssmenu ul ul li.open > a::after,
+.cssmenu ul ul li > a:hover::after {
+    /*border-color: #ffffff;*/
+}
+
+.cssmenu ul ul.comprimido {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 250px;
+}
+
+.has-sub.active a.act {
+    background-color: #29c8cb;
+    color: #fff;
+}
+
+.toblock {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.subcont:hover .toblock {
+    background: rgba(0,0,0,0.1);
+}

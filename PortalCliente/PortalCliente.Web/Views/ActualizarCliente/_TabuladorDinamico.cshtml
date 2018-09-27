@@ -1,0 +1,276 @@
+﻿<div class="form-sections">
+
+    <div class="row no-margin" data-ng-repeat="tabuladorItem in modelo.TabuladorDinamico">
+        <h3 class="subtitle">
+            Tabulador {{$index + 1}} @*<i class="fas fa-plus boxtool icon-tabulador add"
+                                        data-ng-click="agregarTabDinamico()"><div class="tooltip">Agregar tabulador</div></i>
+            <i class="fas fa-trash-alt boxtool icon-tabulador" 
+               style="margin-left:0px;" 
+               data-ng-show="$index > 0"
+               data-ng-click="eliminarTabulador($index)"><div class="tooltip">Eliminar tabulador</div></i>*@
+        </h3>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <div class="tag-text">Tipo de operación</div>
+                <div class="form-group">
+
+                    <select class="form-control facsame" name="state" id="TipoOperacionTab{{$index + 1}}"
+                            data-ng-model="tabuladorItem.TipoOperacion">
+                        <option value="">Seleccionar</option>
+                        <option value="Especiales">Especiales</option>
+                        <option value="Importación">Importación</option>
+                        <option value="Exportación">Exportación</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="tag-text">Aduana</div>
+                <div class="form-group">
+                    <select class="form-control facsame" name="state" id="AduanaTab{{$index + 1}}"
+                            data-ng-options="aduana as aduana.Descripcion for aduana in catalogoAduanas"
+                            data-ng-model="tabuladorItem.Aduana">
+                        <option value="">Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="tag-text">Clave pedimento</div>
+                <div class="form-group">
+                    <select class="form-control facsame" name="state" id="ClavePedimentoTab{{$index + 1}}"
+                            data-ng-options="descripcion as descripcion.Descripcion for descripcion in catalogoClavePedimento"
+                            data-ng-model="tabuladorItem.ClavePedimento">
+                        <option value="">Seleccionar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="tag-text">Moneda</div>
+                <div class="form-group">
+                    <select class="form-control facsame" name="state" id="MonedaTab{{$index + 1}}"
+                            data-ng-model="tabuladorItem.Moneda">
+                        <option value="">Seleccionar</option>
+                        <option value="MonedaNacional">Moneda Nacional</option>
+                        <option value="Dolares">Dolares</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="tag-text">Facturación</div>
+                <div class="form-group">
+                    <select class="form-control facsame" name="state" id="FacturacionTab{{$index + 1}}"
+                            data-ng-model="tabuladorItem.Facturacion">
+                        <option value="">Seleccionar</option>
+                        <option value="Porpedimento">Por pedimento</option>
+                        <option value="Consolidada">Consolidada</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Días libres en almacén Laredo</div>
+                    <input type="text" class="form-control datos" placeholder=""
+                           data-ng-model="tabuladorItem.DiasLibres"
+                           id="DiasLibresTab{{$index + 1}}">
+                </div>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="tablesorter table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>Empresa <i class="fa fa-angle-down"></i></th>
+                                <th>Concepto facturación <i class="fa fa-angle-down"></i></th>
+                                <th>Concepto autofacturación <i class="fa fa-angle-down"></i></th>
+                                <th>Tarifa venta <i class="fa fa-angle-down"></i></th>
+                                <th>Tarifa de compra <i class="fa fa-angle-down"></i></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbersEmpresa1">
+                            <tr class="table-rows">
+                                <td>
+                                    <select class="form-control" name="state" id="EmpresaTab{{$index + 1}}"
+                                            data-ng-change="obtenerConceptoFacturacion(tabuladorItem.empresaGrid.Empresa)"
+                                            data-ng-model="tabuladorItem.empresaGrid.Empresa">
+                                        <option value="">Seleccionar</option>
+                                        <option value="ELI">ELI</option>
+                                        <option value="RPF">RPF</option>
+                                        <option value="EILO">EILO</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="state" id="ConceptoFacturacionTab{{$index + 1}}"
+                                            data-ng-model="tabuladorItem.empresaGrid.ConceptoFacturacion"
+                                            data-ng-options="descripcion as descripcion.Descripcion for descripcion in catalogoConceptoFacturacion">
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="state" id="ConceptoAutoFacturacionTab{{$index + 1}}"
+                                            data-ng-model="tabuladorItem.empresaGrid.ConceptoAutoFacturacion"
+                                            data-ng-options="descripcion as descripcion.Descripcion for descripcion in catalogoConceptoAutoFacturacion">
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="col-sm-6 no-padding">
+                                        <input type="number" class="form-control" placeholder=""
+                                               data-ng-model="tabuladorItem.empresaGrid.TarifaVenta" id="TarifaVentaTab{{$index + 1}}">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="state"
+                                                data-ng-model="tabuladorItem.empresaGrid.TarifaVentaMoneda"
+                                                id="TarifaVentaTipoMonedaTab{{$index + 1}}">
+                                            <option value="">Seleccionar</option>
+                                            <option value="USD">USD</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="EUR">EUR</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-6 no-padding">
+                                        <input type="number" class="form-control" placeholder=""
+                                               data-ng-model="tabuladorItem.empresaGrid.TarifaCompra" id="TarifaCompraTab{{$index + 1}}">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="state"
+                                                data-ng-model="tabuladorItem.empresaGrid.TarifaCompraMoneda"
+                                                id="TarifaCompraTipoMonedaTab{{$index + 1}}">
+                                            <option value="">Seleccionar</option>
+                                            <option value="USD">USD</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="EUR">EUR</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <i id="add-trTab" class="fas fa-plus boxtool" data-ng-click="agregarEmpresa(tabuladorItem)">
+                                        <div class="tooltip">Agregar</div>
+                                    </i>
+                                </td>
+                            </tr>
+
+                            <tr class="table-rows" ng-repeat="i in tabuladorItem.Empresa" id="fila{{$index +'-'+ $parent.$index +'-'+ ($index + 1)}}g">
+                                <td>
+                                    <select class="form-control" name="state" data-ng-model="i.Empresa"
+                                            data-ng-change="obtenerConceptoFacturacionEdicion(i)"
+                                            disabled>
+                                        <option value="">Seleccionar</option>
+                                        <option value="ELI">ELI</option>
+                                        <option value="RPF">RPF</option>
+                                        <option value="EILO">EILO</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="state" data-ng-model="i.ConceptoFacturacion" disabled
+                                            data-ng-options="descripcion as descripcion.Descripcion for descripcion in i.catalogoConceptoFacturacion">
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="state" data-ng-model="i.ConceptoAutoFacturacion" disabled
+                                            data-ng-options="descripcion as descripcion.Descripcion for descripcion in catalogoConceptoAutoFacturacion">
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="col-sm-6 no-padding">
+                                        <input type="text" class="form-control" data-ng-model="i.TarifaVenta" disabled>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="state" data-ng-model="i.TarifaVentaMoneda" disabled>
+                                            <option value="">Seleccionar</option>
+                                            <option value="USD">USD</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="EUR">EUR</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="col-sm-6 no-padding">
+                                        <input type="text" class="form-control" data-ng-model="i.TarifaCompra" disabled>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="state" data-ng-model="i.TarifaCompraMoneda" disabled>
+                                            <option value="">Seleccionar</option>
+                                            <option value="USD">USD</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="EUR">EUR</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <i id="save{{$index +'-'+ $parent.$index +'-'+ ($index + 1)}}g" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaEmpresa(($index +'-'+ $parent.$index +'-'+ ($index + 1))+'g')">
+                                        <span class="tooltip">Guardar</span>
+                                    </i><i id="edit{{$index +'-'+ $parent.$index +'-'+ ($index + 1)}}g" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaEmpresa(($index +'-'+ $parent.$index +'-'+ ($index + 1))+'g')">
+                                        <span class="tooltip">Editar</span>
+                                    </i>
+                                    <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaEmpresa(tabuladorItem, $index)">
+                                        <span class="tooltip">Borrar</span>
+                                    </i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="news-tabuladores"></div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="tag-text">Datos adicionales para agregar en las factura</div>
+                <input type="text" class="form-control datos" placeholder="" id="in40"
+                       data-ng-model="modelo.DatoAdicional">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="tag-text">Método de pago</div>
+            <div class="form-group">
+                <select class="form-control facsame" name="state" id="in41"
+                        data-ng-model="modelo.MetodoPago">
+                    <option value="">Selecciona</option>
+                    <option value="Noidentificado">No identificado</option>
+                    <option value="Cheque">Cheque</option>
+                    <option value="Transferencia">Transferencia</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="tag-text">Últimos 4 dígitos de la cuenta</div>
+                <input type="text" class="form-control datos" placeholder="" id="in42"
+                       data-ng-model="modelo.UltimosDigitos">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <div class="tag-text">Instrucciones especiales</div>
+                <input type="text" class="form-control datos" placeholder="" id="in43"
+                       data-ng-model="modelo.Intrucciones">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+

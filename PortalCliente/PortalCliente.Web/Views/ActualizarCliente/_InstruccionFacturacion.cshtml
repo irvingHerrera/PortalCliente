@@ -1,0 +1,139 @@
+﻿<div class="form-sections">
+    <h3 class="subtitle">Instrucciones de facturación</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador">
+                <span class="tag-text" id="l4">Sitio FTP o página web para carga de facturas electrónicas</span>
+                <span class="text">
+
+                    <input type="radio" id="factchecksi1" name="cc1" class="factcheck" checked data-ng-model="modelo.SitioFTP" ng-value="true" />
+                    <label for="factchecksi1"><span><div></div></span>SI</label>
+
+                    <input type="radio" id="factcheckno1" name="cc1" class="factcheck" data-ng-model="modelo.SitioFTP" ng-value="false" />
+                    <label for="factcheckno1"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="ftpdatos" data-ng-show="modelo.SitioFTP">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Dirección de la página web</div>
+                <input type="text" class="form-control datos" placeholder="" id="in6Tab" data-ng-model="modelo.DireccionPaginaWeb">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Usuario</div>
+                <input type="text" class="form-control datos" placeholder="" id="in7Tab" data-ng-model="modelo.Usuario">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div class="tag-text">Contraseña</div>
+                <input type="text" class="form-control datos" placeholder="" id="in8Tab" data-ng-model="modelo.Contrasena">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group renglon-separador">
+                <span class="tag-text" id="l5">El cliente requiere entrega física</span>
+                <span class="text">
+
+                    <input type="radio" id="entregasi" name="cc2" class="entrega" checked data-ng-model="modelo.EntregaFisica" ng-value="true" />
+                    <label for="entregasi"><span><div></div></span>SI</label>
+
+                    <input type="radio" id="entregano" name="cc2" class="entrega" data-ng-model="modelo.EntregaFisica" ng-value="false" />
+                    <label for="entregano"><span><div></div></span>NO</label>
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="entrega" class="row no-margin-lateral" data-ng-show="modelo.EntregaFisica">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Días de revisión</div>
+                    <input type="text" class="form-control datos" placeholder="" id="inT9" data-ng-model="modelo.DiasRevision">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Horario de revisión</div>
+                    <input type="text" class="form-control datos" placeholder="" id="inT10" data-ng-model="modelo.HorarioRevision">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Personas que reciben facturas</div>
+                    <input type="text" class="form-control datos" placeholder="" id="inT11" data-ng-model="modelo.PersonasReciben">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="tag-text">No. Juego de copias</div>
+                    <input type="number" class="form-control datos" placeholder="" id="inT12" data-ng-model="modelo.NumJuegoCopia">
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <div class="tag-text">Calle y número</div>
+                    <input type="text" class="form-control datos" placeholder="" id="in13" data-ng-model="modelo.CalleNumero">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Colonia</div>
+                    <input type="text" class="form-control datos" placeholder="" id="in14" data-ng-model="modelo.Colonia">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">Estado</div>
+                    <div class="form-group">
+                        <select class="form-control"
+                                name="state" id="in15"
+                                data-ng-change="obtenerCiudad(modelo.Estado.id)"
+                                data-ng-options="estado as estado.Descripcion for estado in catalogoEstado"
+                                data-ng-model="modelo.Estado">
+                            <option value="">Selecciona un estado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="tag-text">Ciudad</div>
+                <div class="form-group">
+                    <select class="form-control" name="state" id="in16"
+                            data-ng-model="modelo.Ciudad"
+                            data-ng-options="ciudad as ciudad.Descripcion for ciudad in catalogoCiudad">
+                        <option value="">Selecciona una ciudad</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="tag-text">C.P.</div>
+                    <input type="number" class="form-control datos" placeholder="" id="in17" data-ng-model="modelo.CP">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

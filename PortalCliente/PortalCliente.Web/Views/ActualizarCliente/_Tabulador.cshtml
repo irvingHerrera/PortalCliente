@@ -1,0 +1,34 @@
+﻿
+
+<div class="form-sections">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="tag-text">Ejecutivo de ventas</div>
+            <input type="text" class="form-control datos" placeholder="" id="in1" data-ng-model="modelo.EjecutivoVenta" readonly>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="tag-text">Equipo operativo</div>
+            <select class="form-control datos" id="in2"
+                    data-ng-options="estado as estado.Descripcion for estado in catalogoEquipoOperativo"
+                    data-ng-model="modelo.EquipoOperativo">
+                <option value="">Selecciona un Equipo</option>
+            </select>
+
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+@Html.Partial("_TipoCliente")
+
+@Html.Partial("_InstruccionFacturacion")
+
+@Html.Partial("_Tabuladores")
+
+@Html.Partial("_TabuladorDinamico")
+
+@Html.Partial("_InformacionFinanciera")
+
+@Html.Partial("_TarifaVenta")

@@ -1,0 +1,50 @@
+﻿<div class="form-sections">
+    <h3 class="subtitle">Tipo Cliente</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group text-center input-edit">
+                <div class="form-group text-center">
+                    <span class="text">
+
+                        <input data-ng-disabled="inputDisable" type="radio" id="ped" name="TipoCte" data-ng-model="modelActCte.TipoCliente" value="1" onclick="cambiarEtiqueta('Pedimento')" />
+                        <label for="ped" id="l1"><span><div></div></span>Pedimento</label>
+
+                        <input data-ng-disabled="inputDisable" type="radio" id="fact" name="TipoCte" data-ng-model="modelActCte.TipoCliente" value="2" onclick="cambiarEtiqueta('Factura')" />
+                        <label for="fact" id="l2"><span><div></div></span>Factura</label>
+
+                        <input data-ng-disabled="inputDisable" type="radio" id="ped-fact" name="TipoCte" data-ng-model="modelActCte.TipoCliente" value="3" />
+                        <label for="ped-fact" id="l3"><span><div></div></span>Pedimento-Factura</label>
+
+                    </span>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-margin-lateral">
+        <div class="col-sm-6">
+            <div class="form-group input-edit">
+                <div class="tag-text">RFC de Servicios de la sociedad que va a facturar</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.RFCServ" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-margin-lateral">
+        <div class="col-sm-6">
+            <div class="form-group input-edit nombre-alta">
+                <div class="tag-text">Nombre Cliente Alta</div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.NombreCteAlta" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group input-edit cliente-pedimento">
+                <div class="tag-text">Cliente Pedimento </div>
+                <input id="inp3" type="text" data-ng-model="modelActCte.CtePedimento" class="form-control" data-ng-disabled="inputDisable" />
+            </div>
+        </div>
+    </div>
+
+</div>

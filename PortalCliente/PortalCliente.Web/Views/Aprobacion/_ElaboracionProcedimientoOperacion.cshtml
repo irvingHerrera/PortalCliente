@@ -1,0 +1,131 @@
+﻿<div class="row">
+    <div class="col-sm-12 tag-text renglon-separador text-bold">4. Elaboración de pedimento</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Tipo de Pedimento</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_TipodePedimentoDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Régimen</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_RegimenDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Manejo de Pedimento</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_ManejodePedimentoDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Incoterm</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_IncotermDES"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Método de valoración</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_MetodoValoracionDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Forma de pago</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_FormaPagoDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Vinculación</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Vinculacion ? 'SI' : 'NO'"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Aplicación de Preferencias</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Id_AplicacionPreferenciasDES"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Aplicación de TLCAN</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.AplicacionTLCAN ? 'SI' : 'NO'"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Incrementables</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.Incrementables ? 'SI' : 'NO'"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <div class="tag-text">Envío de proforma a autorización</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.EnvioProformaAutorizacion ? 'SI' : 'NO'"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="tag-text renglon-separador text-bold">Generación de acuse de COVE y acuse de Edocuments con los sellos de A.A o Cliente</div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group">
+            <span class="tag-text">Grupo EI genera el EEI (Electronic Export Information)</span>
+            <div class="text" data-ng-bind=""></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group">
+            <span class="text renglon-separador text-bold">Forma de cargo para pago de impuestos en pedimento</span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th class="header">Banco</th>
+                        <th class="header">Cuenta</th>
+                        <th class="header">Identificador</th>
+                        <th class="header">Aduana</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="table-rows" data-ng-repeat="cuenta in Procedimiento.Cuentas">
+                        <td>{{cuenta.Banco}}</td>
+                        <td>{{cuenta.NumeroCuenta}}</td>
+                        <td>{{cuenta.Identificador}}</td>
+                        <td>{{cuenta.Aduana}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="tag-text">Observaciones específicas</div>
+            <div class="text" data-ng-bind="Procedimiento.Dato.ObservacionesEspecificas"></div>
+        </div>
+    </div>
+</div>

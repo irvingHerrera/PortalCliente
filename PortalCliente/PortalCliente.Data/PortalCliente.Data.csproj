@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{900EC5AB-356E-4F40-B648-856398521F9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PortalCliente.Data</RootNamespace>
+    <AssemblyName>PortalCliente.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD\DataBaseAcces.cs" />
+    <Compile Include="DAC\DxAplicacionPreferencia.cs" />
+    <Compile Include="DAC\DxContactoGruposEI.cs" />
+    <Compile Include="DAC\DxDatosAdicionales.cs" />
+    <Compile Include="DAC\DxModulos.cs" />
+    <Compile Include="DAC\DxRoles.cs" />
+    <Compile Include="DAC\DxRolesModulos.cs" />
+    <Compile Include="DAC\DxTabuladorProcedimientoOperacion.cs" />
+    <Compile Include="DAC\DxTabuladorProcOpCats.cs" />
+    <Compile Include="DAC\DxUsuarios.cs" />
+    <Compile Include="DAC\DxUsuarisoAudabook.cs" />
+    <Compile Include="ENT\CatalogoDTO.cs" />
+    <Compile Include="ENT\ClienteDTO.cs" />
+    <Compile Include="ENT\ContactoDTO.cs" />
+    <Compile Include="ENT\ContactosTabuladoresDTO.cs" />
+    <Compile Include="ENT\CuentaDTO.cs" />
+    <Compile Include="ENT\DatosFinanciamientoDTO.cs" />
+    <Compile Include="ENT\EmpresaTabuladorDTO.cs" />
+    <Compile Include="ENT\ExApliacacionPreferencia.cs" />
+    <Compile Include="ENT\ExContactoGruposEI.cs" />
+    <Compile Include="ENT\ExDatosAdicionales.cs" />
+    <Compile Include="ENT\ExDocumentos.cs" />
+    <Compile Include="ENT\CuestionarioDTO.cs" />
+    <Compile Include="ENT\DatosUsuarioDTO.cs" />
+    <Compile Include="ENT\ExFormaPago.cs" />
+    <Compile Include="ENT\ExIncoterm.cs" />
+    <Compile Include="ENT\ExMetodoValoracion.cs" />
+    <Compile Include="ENT\ExModulos.cs" />
+    <Compile Include="ENT\ExRegimen.cs" />
+    <Compile Include="ENT\ExRoles.cs" />
+    <Compile Include="ENT\ExRolesModulos.cs" />
+    <Compile Include="ENT\ExTabuladorProcedimientoOperacion.cs" />
+    <Compile Include="ENT\ExUsuarios.cs" />
+    <Compile Include="ENT\ExUsuariosAudabook.cs" />
+    <Compile Include="ENT\InformacionContactoDTO.cs" />
+    <Compile Include="ENT\SeccionesDTO.cs" />
+    <Compile Include="ENT\SistemasOperativosDTO.cs" />
+    <Compile Include="ENT\TabuladorDinamicoDTO.cs" />
+    <Compile Include="ENT\TabuladorDTO.cs" />
+    <Compile Include="ENT\TarifaServicioDTO.cs" />
+    <Compile Include="ENT\TarifasTabuladoresDTO.cs" />
+    <Compile Include="ENT\TipoCliente.cs" />
+    <Compile Include="Interfaz\IActualizarCliente.cs" />
+    <Compile Include="Interfaz\IAltaClienteRepository.cs" />
+    <Compile Include="Interfaz\IAprobacionRepository.cs" />
+    <Compile Include="Interfaz\ICapturaClienteRepository.cs" />
+    <Compile Include="Interfaz\ICatalogoRepository.cs" />
+    <Compile Include="Interfaz\IClienteRepository.cs" />
+    <Compile Include="Interfaz\IConfiguracionRepository.cs" />
+    <Compile Include="Interfaz\IConsultaRepository.cs" />
+    <Compile Include="Interfaz\IDatosUsuarioRepository.cs" />
+    <Compile Include="Interfaz\IImpresionRepository.cs" />
+    <Compile Include="Interfaz\INotificacionRepository.cs" />
+    <Compile Include="Interfaz\IRegistroClienteRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\ActualizarClienteRepository.cs" />
+    <Compile Include="Repositorio\AltaClienteRepository.cs" />
+    <Compile Include="Repositorio\AprobacionRepository.cs" />
+    <Compile Include="Repositorio\CapturaClienteRepository.cs" />
+    <Compile Include="Repositorio\CatalogoRepository.cs" />
+    <Compile Include="Repositorio\ClienteRepository.cs" />
+    <Compile Include="Repositorio\ConfiguracionRepository.cs" />
+    <Compile Include="Repositorio\ConsultaRepository.cs" />
+    <Compile Include="Repositorio\DatosUsuarioRepository.cs" />
+    <Compile Include="Repositorio\DocumentosClienteRepository.cs" />
+    <Compile Include="Repositorio\ImpresionRepository.cs" />
+    <Compile Include="Repositorio\NotificacionRepository.cs" />
+    <Compile Include="Repositorio\RegistroClienteRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contexto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

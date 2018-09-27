@@ -1,0 +1,408 @@
+﻿<div class="form-sections">
+
+    <div class="row">
+        <div class="col-sm-7">
+            <h3 class="subtitle">Documentos para el expediente del cliente</h3>
+        </div>
+        <div class="col-sm-2 text-center">
+            <h3 data-ng-show="inputDisable" class="subtitle">Documento</h3>
+            <h3 data-ng-hide="inputDisable" class="subtitle">Se requiere</h3>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Carta Encomienda de la patente titular <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        El documento se requiere en original con firma autógrafa del representante y/o apoderado legal en tinta azul y en hoja membretada.<br>
+                        Si son varias patentes para registrar, favor de realizar el mismo proceso por patente. Puede consultarse el listado de patentes.
+                    </div>
+                </i>
+                <!--
+                <i data-ng-hide="inputDisable" class="fas fa-file-alt icon boxtool carta" data-toggle="modal" data-target="#"><div class="tooltip">Captura carta</div></i>
+                -->
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="false">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos1"><div class="tooltip medium">Ver documento</div></i>
+            <!--
+            <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+            -->
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.CartaEncomienda, 'frame')"><div class="tooltip">Actualizar</div></i>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Original</div>
+        </div>
+        <div data-ng-hide="true" class="col-sm-3 text-center">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.CartaEncomienda ? Documento.CartaEncomienda.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.CartaEncomienda)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Carta Encomienda de la patente de respaldo <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        El documento se requiere en original con firma autógrafa del representante y/o apoderado legal en tinta azul y en hoja membretada.<br>
+                        Si son varias patentes para registrar, favor de realizar el mismo proceso por patente. Puede consultarse el listado de patentes.<br>
+                        <strong>Nota:</strong> Si no se incluye el documento, es decir que se seleccionó la opción NO, deberá indicar de manera forzosa el motivo por el cual no se incluye dicho documento.
+                    </div>
+                </i>
+            </div>
+        </div>
+
+        <div class="col-sm-2 text-center" data-ng-hide="model.DatoAdicional.ConCartaEncomiendaActualizar">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc3"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos2"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ConstanciaCliente, 'frame2')"><div class="tooltip">Actualizar</div></i>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="model.DatoAdicional.ConCartaEncomiendaActualizar">
+            <textarea data-ng-show="model.DatoAdicional.ConCartaEncomiendaActualizar"
+                      data-ng-model="model.DatoAdicional.MotivoCartaEncomienda"
+                      class="form-control"
+                      placeholder="Redactar motivo por el cual no envía la encomienda de respaldo"></textarea>
+        </div>
+        
+        <!--
+    <div class="col-sm-12 text-center no-padding">
+
+        <input type="radio" id="checksi" data-ng-model="model.DatoAdicional.ConCartaEncomienda" data-ng-value="true" name="de1" class="mot1">
+        <label for="checksi"><span><div></div></span>SI</label>
+
+        <input type="radio" id="checkno" data-ng-model="model.DatoAdicional.ConCartaEncomienda" data-ng-value="false" name="de1" class="mot1">
+        <label for="checkno"><span><div></div></span>NO</label>
+
+    </div>
+        -->
+    </div>
+
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Original</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="inputDisable">
+            <div data-ng-show="model.DatoAdicional.ConCartaEncomiendaActualizar">
+                <!--
+    <span class="fas fa-check-circle icon boxtool motivo2">
+        <div class="tooltip big" data-ng-bind="Documento.CartaEncomiendaRespaldo ? Documento.CartaEncomiendaRespaldo.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+    </span>
+
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.CartaEncomiendaRespaldo)"><div class="tooltip">Actualizar</div></i>
+            </div>
+            <textarea data-ng-hide="model.DatoAdicional.ConCartaEncomiendaActualizar"
+                      data-ng-model="model.DatoAdicional.MotivoCartaEncomienda"
+                      class="form-control"
+                      placeholder="Redactar motivo por el cual no envía la encomienda de respaldo"></textarea>
+                    -->
+
+            </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Constancia de situación del cliente <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        Se podrá contemplar además de la constancia, la cédula de identificación fiscal y/o acuse de movimientos de actualización
+                        de situación fiscal (Se podrán descargar en la página https://www.siat.sat.gob.mx/PTSC/ ,
+                        en el apartado de “servicios”) con fecha de impresión no mayor a dos meses. Y deberá asegurarse que contenga
+                        RFC, Dirección fiscal y Código bidimensional.
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc3"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos3"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ConstanciaCliente, 'frame3')"><div class="tooltip">Actualizar</div></i>
+            <!--
+            <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+            -->
+        </div>
+
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.ConstanciaCliente ? Documento.ConstanciaCliente.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ConstanciaCliente)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Comprobante de domicilio de la empresa no mayor a 2 meses <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        Solo se aceptan comprobantes de luz, agua, teléfono fijo y gas. En caso que los comprobantes
+                        de domicilio, se encuentren a nombre de un tercero, agregar copia del contrato de arrendamiento o contrato comodato.
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc4"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos4"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ComprobanteDomicilio, 'frame4')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+        -->
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.ComprobanteDomicilio ? Documento.ComprobanteDomicilio.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ComprobanteDomicilio)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Acta constitutiva de la empresa <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        Este documento se requiere con registro público de la propiedad y de comercio y
+                        solo aplica para persona moral.
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc5"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos5"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ActaContitutiva, 'frame5')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.ActaContitutiva ? Documento.ActaContitutiva.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.ActaContitutiva)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Poder Notarial del representante y/o apoderado legal <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">Será considerado en actos administrativos como mínimo.</div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc6"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos6"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.PoderNotarial, 'frame6')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+
+        </div>
+
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.PoderNotarial ? Documento.PoderNotarial.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.PoderNotarial)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Identificación oficial con foto y firma <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        La vigencia deberá ser mayor a un año como mínimo y podrá ser IFE, INE, pasaporte,
+                        cédula profesional y únicamente aplica para el representante y/o apoderado legal. En caso de ser extranjero,
+                        presentar documento que acredite su legal estancia en el país (FM1, FM2 y FM3)
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc7"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos7"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Identificacion, 'frame7')"><div class="tooltip">Actualizar</div></i>
+            <!--
+
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.Identificacion ? Documento.Identificacion.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Identificacion)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                RFC  del representante legal <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">Impresión reciente.</div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc8"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos8"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.RFC, 'frame8')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.RFC ? Documento.RFC.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.RFC)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Encargo Conferido a favor de cada uno de los agentes aduanales <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">
+                        Se puede decargar con la FIEL o contraseña en la
+                        siguiente liga https://www.sait.sat.gob.mx/PTSC/, apartado RFC/Importadores y Sectores específicos / Actualización de
+                        Encargos Conferidos. Para mayor información sobre lo que es un encargo conferido, puede consultar la siguiente
+                        liga: http://www.sat.gob.mx/aduanas/importando_exportando/guia_importación/Paginas/encargo_conferido_al_agente_aduanal.aspx)
+                    </div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc9"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos9"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Encargado, 'frame9')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">PDF/Copia</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.Encargado ? Documento.Encargado.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Encargado)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="text">
+                Fotografías recientes del establecimiento <i data-ng-hide="inputDisable" class="fas fa-info-circle icon boxtool">
+                    <div class="tooltip big">Las fotos se requieren de la fachada y si es posible del interior, así como también, pueden ser fotografías de publicidad.</div>
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-2 text-center" data-ng-show="true">
+            <!--
+            <i class="far fa-file-alt icon boxtool ver-doc10"><div class="tooltip medium">Ver documento</div></i>
+            -->
+            <i class="far fa-file-alt icon boxtool visualizaDocumentos10"><div class="tooltip medium">Ver documento</div></i>
+            <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Fotografia, 'frame10')"><div class="tooltip">Actualizar</div></i>
+            <!--
+    <i class="fas fa-cloud-upload-alt icon boxtool correcdoc"><div class="tooltip">Cargar correcto</div></i>
+    -->
+
+        </div>
+        <div class="col-sm-2 text-center" data-ng-hide="true">
+            <div class="text">JPG-PNG-GIF</div>
+        </div>
+        <div class="col-sm-3 text-center" data-ng-hide="true">
+            <div>
+                <span class="fas fa-check-circle icon boxtool motivo2">
+                    <div class="tooltip big" data-ng-bind="Documento.Fotografia ? Documento.Fotografia.NombreAchivo : 'Ocurrió un problema al obtener el archivo'"></div>
+                </span>
+                <i class="fas fa-sync-alt icon boxtool motivo1" data-ng-click="modalDocumento(Documento.Fotografia)"><div class="tooltip">Actualizar</div></i>
+            </div>
+        </div>
+    </div>
+
+</div>

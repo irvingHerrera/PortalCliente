@@ -1,0 +1,24 @@
+﻿<div id="popup-confirm" class="popup datos-inicio">
+    <span class="fas fa-times btn-close" data-ng-click="cerrarModal()"></span>
+    <div id="mensaje" class="text"></div>
+    <div class="form-group text-left" data-ng-class="modalConfirmar.claseError" data-ng-show="modalConfirmar.isRevalidacion">
+        <div id="obs" class="tag-text">Observaciones</div>
+        <textarea class="form-control texttarea" data-ng-model="modalConfirmar.Observacion"></textarea>
+    </div>
+
+    <div class="form-group text-center text-bold" style="color:black;" data-ng-show="!modalConfirmar.isRevalidacion">
+        <div id="obs">¿Está seguro que desea aprobar la información?</div>
+    </div>
+
+    <button class="btn btn-primary"
+            data-ng-show="modalConfirmar.isRevalidacion"
+            data-ng-click="aceptarRevalidacion()">
+        Aceptar
+    </button>
+    <button class="btn btn-primary"
+            data-ng-show="!modalConfirmar.isRevalidacion"
+            data-ng-click="aceptarAprobacion()">
+        Aceptar
+    </button>
+    <button class="btn btn-default" data-ng-click="cerrarModal()">Cancelar</button>
+</div>

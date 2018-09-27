@@ -1,0 +1,79 @@
+
+
+.menujq ul {
+	list-style: none;
+    width: 95%;
+    margin: 0px auto 20px;
+    padding: 0;
+}
+
+.menujq ul .form-sections {
+	width: 100%;
+	box-shadow: none;
+}
+
+
+.menujq a:hover {
+	background-color: #ADADAD;
+}
+
+
+.menujq a {
+margin: 10px 0 0;
+display: block;
+padding: 15px 20px;
+color: #fff;
+text-decoration: none;
+font-size: 16px;
+line-height: 16px;
+font-weight: 300;
+background-color: #838383;
+transition: background-color .5s;
+position: relative;
+}
+.menujq a:hover {
+	text-decoration: none;
+}
+
+.menujq a.bg-green {
+  background-color: #5BBB0F; 
+  color: #fff; 
+}
+
+/* Símbolo elemento normal */
+.menujq ul li a:after {
+content: url('../../img/chevron-close.png');
+width: 20px;
+float: right;
+}
+/* Símbolo elemento desplegable cerrado */
+.menujq ul li.desplegable a:after {
+content: url('../../img/chevron-close.png');
+}
+/* Símbolo elemento desplegable abierto */
+.menujq ul li.desplegable.activa a:after {
+content: url('../../img/chevron-open.png');
+}
+/* Eliminar símbolos para sub-opciones */
+.menujq ul li.desplegable ul li a:after,
+.menujq ul li.desplegable.activa ul li a:after {
+content: "";
+}
+/* Lista anidada inicialmente oculta */
+.menujq ul ul {
+display: none;
+width: 100%;
+padding: 10px 0px;
+width: 95%
+margin:10px auto;
+}
+/* Sangrado y segundo color para sub-opciones */
+.menujq ul ul a {
+/*padding-left: 20px;*/
+text-transform: capitalize;
+}
+
+.menujq ul li.desplegable {
+margin-left: 0px;
+}
+

@@ -1,0 +1,114 @@
+﻿<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador">
+            <div class="tag-text text-bold">11. Contactos</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="tag-text">11.1 Contactos GRUPO EI</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th>Nombre<i class="fa fa-angle-down"></i></th>
+                        <th>Email <i class="fa fa-angle-down"></i></th>
+                        <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                        <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-rows" data-ng-hide="false">
+                        <td>
+                            <input type="text" class="form-control"
+                                   placeholder="" id="nombre-{{Procedimiento.Indice}}" data-ng-model="Procedimiento.ContactoEI.nombre">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control"
+                                   placeholder="" id="email-{{Procedimiento.Indice}}" data-ng-model="Procedimiento.ContactoEI.correo">
+                        </td>
+                        <td>
+                            <input type="tel" class="form-control"
+                                   placeholder="" id="telefono-{{Procedimiento.Indice}}" data-ng-model="Procedimiento.ContactoEI.telefono">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control"
+                                   placeholder="" id="puesto-{{Procedimiento.Indice}}" data-ng-model="Procedimiento.ContactoEI.puesto_departamento">
+                        </td>
+                        <td>
+                            <i id="tr-{{Procedimiento.Indice}}" class="fas fa-plus boxtool add-trPO" data-ng-click="agregarContactoEI(Procedimiento.ContactoEI,Procedimiento.Indice)">
+                                <span class="tooltip">Agregar</span>
+                            </i>
+                        </td>
+                    </tr>
+                    <tr class="table-rows" ng-repeat="i in Procedimiento.ContactosEI" id="po{{Procedimiento.Indice}}fila{{$index + 1}}">
+                        <td><input type="text" class="form-control" data-ng-model="i.nombre" disabled></td>
+                        <td><input type="text" class="form-control" data-ng-model="i.correo" disabled></td>
+                        <td><input type="text" class="form-control" data-ng-model="i.telefono" disabled></td>
+                        <td><input type="text" class="form-control" data-ng-model="i.puesto_departamento" disabled></td>
+                        <td data-ng-hide="inputDisable">
+                            <i id="po{{Procedimiento.Indice}}save{{$index + 1}}" class="fas fa-save btn-save boxtool" data-ng-click="actualizarFilaContactoEI($index + 1,Procedimiento.Indice)">
+                                <span  class="tooltip">Guardar</span>
+                            </i>
+                            <i id="po{{Procedimiento.Indice}}edit{{$index + 1}}" class="fas fa-pencil-alt boxtool" data-ng-click="editarFilaContactoEI($index + 1,Procedimiento.Indice)">
+                                <span class="tooltip">Editar</span>
+                            </i>
+                            <i class="fas fa-trash-alt boxtool" data-ng-click="eliminarFilaContactoEI($index,Procedimiento.Indice)">
+                                <span class="tooltip">Borrar</span>
+                            </i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="popup-error" class="popup">
+                <i class="fas fa-times btn-close"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensaje-aviso" class="text"></div>
+                <button class="btn btn-danger btn-aviso">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group renglon-separador">
+            <div class="tag-text">11.2 Contactos {{Procedimiento.Precliente.NombreComercial}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="tablesorter table table-striped table-bordered table-hover">
+                <thead class="table-rows star">
+                    <tr>
+                        <th>Nombre <i class="fa fa-angle-down"></i></th>
+                        <th>Email <i class="fa fa-angle-down"></i></th>
+                        <th>Teléfono <i class="fa fa-angle-down"></i></th>
+                        <th>Puesto/Dpto. <i class="fa fa-angle-down"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="numbers">
+                    <tr class="table-rows" data-ng-repeat="contacto in Procedimiento.Precliente.ContactoCliente">
+                        <td data-ng-bind="contacto.Nombre"></td>
+                        <td data-ng-bind="contacto.Correo"></td>
+                        <td data-ng-bind="contacto.Telefono"></td>
+                        <td data-ng-bind="contacto.PuestoDepartamento"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

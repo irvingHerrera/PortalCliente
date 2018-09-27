@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "PreCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Consultas</h1>
+    </div>
+</div>
+<div style="margin-bottom:10px">
+    @{Html.RenderAction("BusquedaClienteSoloPreclientes", "Notificacion");}
+</div>
+<div data-ng-controller="preClienteCtrl">
+
+    <div class="col-sm-12 text-right">
+        <button data-ng-disabled="habGerenteComercial" data-ng-click="AprobacionPrealta()" class="btn btn-success"><i class="far fa-check-circle"></i> Seguir con aprobación pre-alta</button>
+    </div>
+
+    @{Html.RenderPartial("_ListaAprobador");}
+
+
+
+    <div class="row menu-sections no-margin-lateral two">
+        <div class="btn-operaciones-cont">
+            <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)"><i id="icon-t1-1" class="fas fa-user-plus iconpasos"></i> Pre-Cliente</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso2" class="btn-operaciones last" onclick="showPaso(2)"><i id="icon-t1-2" class="far fa-check-square iconpasos"></i> Estatus de aprobacón</button>
+        </div>
+    </div>
+        <div id="cont-paso1" class="cont-datos captura">
+            <div id="cont-paso-in1" style="overflow: hidden;position: relative;">
+                <br /><br />
+                @{Html.RenderPartial("_DatosCliente");}
+                @{Html.RenderPartial("_DatosContacto");}
+                @{Html.RenderPartial("_DatosBancarios");}
+                @{Html.RenderPartial("_ActCteTipoCte");}
+                @{Html.RenderPartial("_ActCteInsFact");}
+                @{Html.RenderPartial("_ActCteTabuladores");}
+                @{Html.RenderPartial("_ActCteTabulador1");}
+                @{Html.RenderPartial("_ActCteInfoFinan");}
+                @{Html.RenderPartial("_ActCteTarifaVtas");}
+                @{Html.RenderPartial("_DatosInfAdicional");}
+                @{Html.RenderPartial("_ActCteProcOpr");}
+            </div>
+        </div>
+        
+        <div id="cont-paso2" class="cont-datos captura" style="display: none;">
+            <br /><br />
+            @{Html.RenderPartial("_EstatusAprobacion");}
+        </div>
+
+
+        <div id="popup" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensaje" class="text"></div>
+            <button id="si" class="btn btn-success closeall">Aceptar</button>
+        </div>
+        <div id="popup-error" class="popup">
+            <i class="fas fa-times btn-close"></i>
+            <div class="icon"><i class=""></i></div>
+            <div id="mensaje-aviso" class="text"></div>
+            <button class="btn btn-danger btn-aviso">Aceptar</button>
+        </div>
+    </div>
+@section scripts{
+
+    
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.aprobacionService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.consultaService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/consultas/preCliente/preClienteCtrl.js"></script>
+}
+

@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Alta Pendiente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Consultas</h1>
+    </div>
+</div>
+
+<div class="row menu-sections no-margin-lateral two">
+    <div class="btn-operaciones-cont">
+        <button id="paso3" class="btn-operaciones active"><i id="icon-t1-3" class="far fa-arrow-alt-circle-up iconpasos"></i> Altas pendientes</button>
+    </div>
+</div>
+
+<div id="cont-paso3" class="cont-datos captura" data-ng-controller="altaPendienteCtrl" data-ng-init="init()">
+
+    <div class="form-sections">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tag-text renglon-separador">Aprobación de Alta Cliente (Procedimiento de Operación)</div>
+                <div class="row">
+                    <div class="text-left"><label>Busqueda:</label></div>
+                    <div class="col-md-4" style="padding-left:0px;">
+                        <div class="form-group">
+                            <input class="form-control"
+                                   data-ng-model="busqueda.IdPreclienteVisual"
+                                   placeholder="Busqueda precliente por identificador..." />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input class="form-control"
+                                   data-ng-model="busqueda.NombreCliente"
+                                   placeholder="Busqueda precliente por nombre..." />
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive" style="margin-top:0px;">
+                    <table id="table-precliente-pendiente" class="tablesorter table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>ID pre-cliente <i class="fa fa-angle-down"></i></th>
+                                <th>Nombre cliente <i class="fa fa-angle-down"></i></th>
+                                <th>Estatus <i class="fa fa-angle-down"></i></th>
+                                <th>Inicio trámite <i class="fa fa-angle-down"></i></th>
+                                <th>Usuario inicio trámite <i class="fa fa-angle-down"></i></th>
+                                <th>Asignatario <i class="fa fa-angle-down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbers">
+                            <tr data-ng-repeat="precliente in preclientesPendientes |
+                                filter: { IdPreclienteVisual: busqueda.IdPreclienteVisual, NombreCliente: busqueda.NombreCliente }" class="table-rows">
+                                <td>{{precliente.IdPreclienteVisual}}</td>
+                                <td>{{precliente.NombreCliente}}</td>
+                                <td>{{precliente.DescripcionEstatus}}</td>
+                                <td>{{precliente.InicioTramite | mydate | date: 'dd-MM-yyyy'}}</td>
+                                <td>{{precliente.UsuarioTramite}}</td>
+                                <td>{{precliente.Asignatario}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="~/Scripts/angularjs/servicio/app.consultaService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/consultas/altasPendientes/altasPendientesCtrl.js"></script>
+
+
+}

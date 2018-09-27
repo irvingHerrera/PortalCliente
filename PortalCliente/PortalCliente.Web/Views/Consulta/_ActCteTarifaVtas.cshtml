@@ -1,0 +1,46 @@
+﻿<div class="form-sections">
+
+    <h3 class="subtitle">Tarifa de ventas de posibles servicios</h3>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive input-edit">
+                <table class="tablesorter table table-striped table-bordered table-hover">
+                    <thead class="table-rows star">
+                        <tr>
+                            <th>Servicio <i class="fa fa-angle-down"></i></th>
+                            <th>Tarifa <i class="fa fa-angle-down"></i></th>
+                            <th>Notas <i class="fa fa-angle-down"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="numbers">
+                        <tr class="table-rows last" ng-repeat="i in modelActCte.TarifaServ" id="fila{{$index + 1}}">
+                            <td><input type="text" class="form-control" data-ng-model="i.Servicio" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Tarifa" data-ng-disabled="inputDisable"></td>
+                            <td><input type="text" class="form-control" data-ng-model="i.Notas" data-ng-disabled="inputDisable"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Estimado de ventas promedio mensual</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.PromedioMensual" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group input-edit">
+                <div class="tag-text">Tarifa de compra (socio)</div>
+                <input type="text" class="form-control" data-ng-model="modelActCte.TarifaComp" data-ng-disabled="inputDisable">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,40 @@
+﻿
+<div class="form-sections" data-ng-repeat="Procedimiento in arrayProcedimiento">
+    <h3 class="subtitle"> Procedimiento de operación (FGV-00{{$index + 1}})</h3>
+
+    <input type="hidden" data-ng-model="Procedimiento.Id_Tabulador" />
+    <input type="hidden" data-ng-model="Procedimiento.Indice" />
+
+
+
+    @{ Html.RenderPartial("_DecripcionOperacionProcedimiento"); }
+
+    @{ Html.RenderPartial("_ElaboracionPedimientoProcedimiento"); }
+
+    @{ Html.RenderPartial("_DespachoMercanciaProcedimiento"); }
+
+    @{ Html.RenderPartial("_FinanciamientoProcedimiento"); }
+
+    @{ Html.RenderPartial("_ContactoProcedimiento"); }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group renglon-separador">
+                <div class="tag-text">12.2 Oficinas {{Procedimiento.Precliente.NombreComercial}}</div>
+                <div class="text">{{Procedimiento.Precliente.Direccion}}</div>
+            </div>
+        </div>
+    </div>
+    @*</div>
+
+        <div class="col-sm-12 text-right">
+            <button class="btn btn-primary" data-ng-click="GuardaTabuladorRegistroOperacion(Procedimiento)">Guardar</button>
+        </div>*@
+    <div id="dvloaded{{$index}}">
+
+    </div>
+
+    <br><br><br>
+</div>
+
+

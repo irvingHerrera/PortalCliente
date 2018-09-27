@@ -1,0 +1,32 @@
+﻿<div id="popup-confirmAC" class="popup datos-inicio">
+    <span class="fas fa-times btn-close closeall" data-ng-click="cerrarModalAC()"></span>
+    <div id="mensaje" class="text"></div>
+
+    <div class="form-group text-center text-bold" style="color:black;">
+        <div id="obs">
+            {{modalConfirmarAC.isRevalidacion==false?'¿Está seguro que desea aprobar la información?':'¿Está seguro que desea revalidar la información?'}}
+
+        </div>
+    </div>
+
+    <div class="form-group text-left" data-ng-class="modalConfirmarAC.claseError" data-ng-show="modalConfirmarAC.isRevalidacion">
+        @*data-ng-show="modalConfirmar.isRevalidacion"*@
+        <div id="obs" class="tag-text">Observaciones</div>
+        <textarea class="form-control texttarea" data-ng-model="modalConfirmarAC.Observacion" data-ng-disabled="!modalConfirmarAC.habilitar"></textarea>
+    </div>
+
+    <button class="btn btn-primary closeall"
+            data-ng-show="modalConfirmarAC.isRevalidacion"
+            data-ng-click="aceptarRevalidacionAC()">
+        Aceptar
+    </button>
+    <button class="btn btn-primary closeall"
+            data-ng-show="!modalConfirmarAC.isRevalidacion"
+            data-ng-click="aceptarAprobacionAC()">
+        Aceptar
+    </button>
+    <button class="btn btn-default closeall"
+            data-ng-click="cerrarModalAC()">
+        Cancelar
+    </button>
+</div>

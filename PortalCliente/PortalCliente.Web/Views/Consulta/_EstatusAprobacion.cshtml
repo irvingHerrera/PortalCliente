@@ -1,0 +1,60 @@
+﻿
+    <div class="form-sections">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tag-text">Aprobación de Pre-Alta Cliente</div>
+                <div class="table-responsive">
+                    <table class="tablesorter table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>Encargado <i class="fa fa-angle-down"></i></th>
+                                <th>Área <i class="fa fa-angle-down"></i></th>
+                                <th>Estatus <i class="fa fa-angle-down"></i></th>
+                                <th>Fecha <i class="fa fa-angle-down"></i></th>
+                                <th>Observaciones <i class="fa fa-angle-down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbers">
+                            <tr class="table-rows last" ng-repeat="i in aproPreAlta" id="fila{{$index + 1}}">
+                                <td><input type="text" class="form-control" data-ng-model="i.nombre" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.descripcion" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.descripcion1" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.fecha_creacion" disabled></td>
+                                <td><input type="date" class="form-control" data-ng-model="i.observacion" disabled></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tag-text">Aprobación de Alta Cliente (Procedimiento de Operación)</div>
+                <div class="table-responsive">
+                    <table class="tablesorter table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>Encargado <i class="fa fa-angle-down"></i></th>
+                                <th>Área <i class="fa fa-angle-down"></i></th>
+                                <th>Estatus <i class="fa fa-angle-down"></i></th>
+                                <th>Fecha <i class="fa fa-angle-down"></i></th>
+                                <th>Observaciones <i class="fa fa-angle-down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbers">
+                            <tr class="table-rows last" ng-repeat="i in aproAltaCliente" id="fila{{$index + 1}}">
+                                <td><input type="text" class="form-control" data-ng-model="i.nombre" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.descripcion" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.descripcion1" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.fecha_creacion" disabled></td>
+                                <td><input type="text" class="form-control" data-ng-model="i.observacion" disabled></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>

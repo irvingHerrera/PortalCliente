@@ -1,0 +1,338 @@
+﻿
+@{
+    ViewBag.Title = "Aprobación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using PortalCliente.Core.Enum;
+
+@{
+    var usuario = PortalCliente.Core.AplicacionDatoUsuario.Instancia.Usuario;
+}
+
+<style>
+    .popup {
+        position: fixed;
+        top: 25%;
+    }
+
+    .tabla-aprobador {
+        max-height: 74px;
+        margin: 0;
+    }
+
+    .top-aprobador {
+        top: 270px !important;
+    }
+
+    .captura {
+        padding-top: 10px;
+    }
+
+    /**Para edicion*/
+    .input-edit input:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled {
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .input-edit textarea:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit raddio:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit checkbox:disabled {
+        resize: none;
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 0 !important;
+        cursor: default;
+    }
+
+    .input-edit select:disabled select::-ms-expand {
+        display: none;
+    }
+    /****************************/
+
+</style>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Aprobación</h1>
+    </div>
+</div>
+
+
+<div data-ng-controller="aprobadorCtrl">
+
+    <div>
+        @*{Html.RenderAction("BusquedaPrecliente", "Notificacion");}*@
+        @{  Html.RenderAction("BusquedaClienteAprobacion", "Notificacion", new { GrupoEstatus = GrupoEstatus.Aprobaciones, Rol = usuario.Rol, id_usuario = usuario.IdUsuario });}
+    </div>
+
+    @{Html.RenderPartial("_ListaAprobador");}
+
+
+    <div class="row menu-sections no-margin-lateral">
+        <div class="btn-operaciones-cont">
+            <button id="paso1" class="btn-operaciones active" onclick="showPaso(1)" data-ng-disabled="inhabilitaPreAlta"><i id="icon-t1-1" class="far fa-arrow-alt-circle-up iconpasos"></i> Pre-Alta</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso2" class="btn-operaciones" onclick="showPaso(2)" data-ng-disabled="inhabilitaProcedimientoOperacion"><i id="icon-t1-2" class="fas fa-list-ol iconpasos"></i> Procedimiento de operación</button>
+        </div>
+        <div class="btn-operaciones-cont">
+            <button id="paso3" class="btn-operaciones last" onclick="showPaso(3)" data-ng-disabled="inhabilitaActCliente"><i id="icon-t1-3" class="fas fa-sync-alt iconpasos"></i> Actualización de cliente</button>
+        </div>
+    </div>
+    <div data-ng-controller="capturaClienteCtrl" data-ng-init="init(1)">
+        <div id="cont-paso1" class="cont-datos captura" data-ng-class="classTopAprobador">
+            @{Html.RenderPartial("_DatosCliente");}
+
+            @{Html.RenderPartial("_DatosContacto");}
+
+            @{Html.RenderPartial("_DatosBancarios");}
+
+            @{Html.RenderPartial("_DatosInfAdicional");}
+
+            @{Html.RenderPartial("_TabuladorEncabezado");}
+
+            @{Html.RenderPartial("_TabuladorTipoCliente");}
+
+            @{Html.RenderPartial("_TabuladorInstruccionesFacturacion");}
+
+            @{Html.RenderPartial("_TabuladorTabuladores");}
+
+            @{Html.RenderPartial("_TabuladorTabuladorDinamico");}
+
+            @{Html.RenderPartial("_TabuladorInformacionFinanciera");}
+
+            @{Html.RenderPartial("_TabuladorTarifaVenta");}
+
+            <div class="col-sm-12 text-right">
+                <button id="revalidacion" data-ng-click="fnConfirmaRevalidacion()" class="btn btn-primary"><i class="fas fa-sync"></i> Revalidación</button>
+                <button id="aprobar" data-ng-click="fnConfirmarAprobar()" class="btn btn-success"><i class="far fa-check-circle"></i> Aprobar</button>
+                <button id="rechazar" data-ng-click="fnConfirmarNoAprobar()" class="btn btn-danger"><i class="fas fa-ban"></i> No aprobado</button>
+            </div>
+            <br><br><br>
+            <div id="popup-Revalidacion" class="popup datos-inicio">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div class="form-group text-center text-bold" style="color:black;" id="mensajeRev">
+                    ¿Desea revalidar el trámite del cliente?
+                </div>
+                <div class="form-group text-left">
+                    <div id="obsRev" class="tag-text">Observaciones</div>
+                    <textarea data-ng-model="observacionesRev" class="form-control texttarea"></textarea>
+                </div>
+                <button class="btn btn-primary" data-ng-click="fnRevalidacion()">Aceptar</button>
+                <button class="btn btn-default">Cancelar</button>
+            </div>
+            <div id="popup" class="popup">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensaje" class="text"></div>
+                <button id="si" class="btn btn-success closeall">Aceptar</button>
+            </div>
+            <div id="popupAprobadoSI" class="popup">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensajeAprobadoSI" class="text"></div>
+                <button id="si" class="btn btn-success AprobadoSI">Aceptar</button>
+            </div>
+
+            <div id="popupRevalidacion" class="popup">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensajeRevalidacion" class="text"></div>
+                <button class="btn btn-success" data-ng-click="recargar()">Aceptar</button>
+            </div>
+
+            <div id="popup-error" class="popup">
+                <i class="fas fa-times btn-close"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensaje-aviso" class="text"></div>
+                <button class="btn btn-danger btn-aviso">Aceptar</button>
+            </div>
+            <div id="popupOKAprobacion" class="popup">
+                <i class="fas fa-times btn-close"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensajeOKAprobacion" class="text"></div>
+                <button class="btn btn-success aceptarOKAprobacion">Aceptar</button>
+            </div>
+            <div id="popup-AprobarSi" class="popup datos-inicio" style="display: none;">
+                <i class="fas fa-times btn-close"></i>
+                <div id="mensaje" class="text">
+                    ¿Desea aprobar el trámite del cliente?
+                </div>
+                <div class="form-group text-left">
+                    <div id="obs" class="tag-text">Observaciones</div>
+                    <textarea data-ng-model="observaciones" class="form-control texttarea"></textarea>
+                </div>
+                <button class="btn btn-primary closeall" data-ng-click="fnAprobadoSinProcedimientoPreAlta()">Aceptar</button>
+                <button class="btn btn-default closeall">Cancelar</button>
+            </div>
+
+            <div id="popup-AprobarNo" class="popup datos-inicio" style="display: none;">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div id="mensaje" class="text">
+                    ¿Desea rechazar el trámite del cliente?
+                </div>
+                <div class="form-group text-left">
+                    <div id="obs" class="tag-text">Observaciones</div>
+                    <textarea data-ng-model="observaciones" class="form-control texttarea"></textarea>
+                </div>
+                <button class="btn btn-primary closeall" data-ng-click="fnNoAprobado()">Aceptar</button>
+                <button class="btn btn-default closeall">Cancelar</button>
+            </div>
+            <div id="popupNoAprobadoRefresh" class="popup">
+                <i class="fas fa-times btn-close closeall"></i>
+                <div class="icon"><i class=""></i></div>
+                <div id="mensajeNoAprobadoRefresh" class="text"></div>
+                <button class="btn btn-success aceptarNoAprobadoRefresh">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-controller="procedimientoOperacionCtrl" data-ng-init="init()">
+        <div id="cont-paso2" class="cont-datos captura" style="display: none;" data-ng-class="classTopAprobador">
+
+            <div class="form-sections" data-ng-repeat="Procedimiento in arrayProcedimiento">
+
+                <h3 class="subtitle">{{ Procedimiento.Secciones.titulo_seccion }}</h3>
+                <!-- <h3 class="subtitle">Procedimiento de operación (FGV-00{{$index + 1}})</h3> -->
+
+                @{Html.RenderPartial("_DescripcionProcedimientoOperacion");}
+
+                @{Html.RenderPartial("_ElaboracionProcedimientoOperacion");}
+
+                @{Html.RenderPartial("_DespachoProcedimientoOperacion");}
+
+                @{Html.RenderPartial("_AdministracionProcedimientoOperacion");}
+
+                @{Html.RenderPartial("_IndicadoresProcedimientoOperacion");}
+
+                @{Html.RenderPartial("_ContactoProcedimientoOperacion");}
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group renglon-separador">
+                            <div class="tag-text">12.2 Oficinas {{Procedimiento.Precliente.NombreComercial}}</div>
+                            <div class="text">{{Procedimiento.Precliente.Direccion}}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="padding-top:15px">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-primary"
+                            data-ng-disabled="arrayProcedimiento.length === 0"
+                            data-ng-click="revalidacionProcedimiento()">
+                        <i class="fas fa-sync"></i> Revalidación
+                    </button>
+                    <button class="btn btn-success"
+                            data-ng-disabled="arrayProcedimiento.length === 0"
+                            data-ng-click="aprobarProcedimiento()">
+                        <i class="far fa-check-circle"></i> Aprobar
+                    </button>
+                </div>
+            </div>
+            <br><br><br>
+
+            <!--Modal aprobacion revalidacion-->
+            @{Html.RenderPartial("_ModalAprobacionRevalidacion");}
+
+        </div>
+    </div>
+
+    <div id="cont-paso3"
+         data-ng-controller="actualizarClienteCtrl"
+         data-ng-init="init()"
+         class="cont-datos captura" style="display: none;" data-ng-class="classTopAprobador">
+        @{Html.RenderPartial("_ActualizarCliente");}
+
+        @{Html.RenderPartial("_ModalAprobacionRevalidacionActCliente");}
+
+        <div class="col-sm-12 text-right">
+            <button class="btn btn-primary" data-ng-disabled="!botones" data-ng-click="revalidacionActCliente()"><i class="fas fa-sync"></i> Revalidación</button>
+            <button class="btn btn-success" data-ng-disabled="!botones" data-ng-click="aprobarActCliente()"><i class="far fa-check-circle"></i> Aprobar</button>
+        </div>
+        <br><br><br>
+
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/plugin/jquery.tablesorter.min.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.TabuladorProcedimientoOperacionService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.tabuladoresService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/shared/busquedaPreclienteCtrl.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.catalogoService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.actualizaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.registroClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.capturaClienteService.js"></script>
+    <script src="~/Scripts/angularjs/servicio/app.aprobacionService.js"></script>
+    <script src="~/Scripts/angularjs/controlador/aprobacion/aprobadorCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/aprobacion/procedimientoOperacionCtrl.js"></script>
+    <script src="~/Scripts/angularjs/controlador/aprobacion/actualizarClienteCtrl.js"></script>
+
+    <script src="~/Scripts/angularjs/controlador/aprobacion/preAltaCtrl.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready!");
+            $("#cont-paso3 :input").each(function () {
+                $(this).prop("disabled", "disabled");
+                $(this).parent().addClass("input-edit");
+            });
+        });
+        function creaarraycatalogo(items) {
+            var array = [];
+
+            for (var i = 0; i < items.length; i++) {
+                var item = {};
+                item.Id = i;
+                item.Descripcion = items[i];
+                item.Clave = "";
+                array.push(item);
+            }
+            return array;
+        }
+    </script>
+
+
+
+}

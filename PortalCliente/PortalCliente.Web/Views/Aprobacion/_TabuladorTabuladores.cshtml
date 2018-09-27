@@ -1,0 +1,175 @@
+﻿<div class="form-sections">
+
+    <div class="row no-margin">
+        <h3 class="subtitle">Tabuladores</h3>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="table-responsive" style="margin-top: 0;">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead class="table-rows star">
+                            <tr>
+                                <th>Concepto</th>
+                                <th>CtePed</th>
+                                <th>CeteFact</th>
+                                <th>Empresa que factura</th>
+                            </tr>
+                        </thead>
+                        <tbody id="numbers1">
+                            <tr class="table-rows">
+                                <td id="l9">Impuestos</td>
+                                <td>
+                                    <input type="checkbox" id="cteped1" name="tabs" data-ng-model="modelo.ImpuestosCtePed" disabled/>
+                                    <label for="cteped1"><span><div></div></span></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="ctefact1" name="tabs" data-ng-model="modelo.ImpuestosCeteFact" disabled/>
+                                    <label for="ctefact1"><span><div></div></span></label>
+                                </td>
+                                <td class=" ">
+                                    <select class="form-control facsame" name="state" id="in21" data-ng-model="modelo.ImpuestosEmpresaFactura" disabled>
+                                        <option value="">Seleccionar</option>
+                                        <option value="ELI">ELI</option>
+                                        <option value="RPF">RPF</option>
+                                        <option value="EILO">EILO</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="table-rows">
+                                <td id="l8">Honorarios/Compl</td>
+                                <td>
+                                    <input type="checkbox" id="cteped2" name="tabs2" data-ng-model="modelo.HonorariosCtePed" disabled />
+                                    <label for="cteped2"><span><div></div></span></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="ctefact2" name="tabs2" data-ng-model="modelo.HonorariosCeteFact" disabled/>
+                                    <label for="ctefact2"><span><div></div></span></label>
+                                </td>
+                                <td class=" ">
+                                    <select class="form-control facsame" name="state" id="in20" disabled data-ng-model="modelo.HonorariosEmpresaFactura">
+                                        <option value="">Seleccionar</option>
+                                        <option value="ELI">ELI</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="table-rows">
+                                <td id="l7">Cta Americana</td>
+                                <td>
+                                    <input type="checkbox" id="cteped3" name="tabs3" data-ng-model="modelo.CtaAmericanaCtePed" disabled/>
+                                    <label for="cteped3"><span><div></div></span></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="ctefact3" name="tabs3" data-ng-model="modelo.CtaAmericanaCeteFact" disabled/>
+                                    <label for="ctefact3"><span><div></div></span></label>
+                                </td>
+                                <td class=" ">
+                                    <select class="form-control facsame" name="state" id="in19" disabled data-ng-model="modelo.CtaAmericanaEmpresaFactura">
+                                        <option value="">Seleccionar</option>
+                                        <option value="RPF">RPF</option>
+                                        <option value="EILO">EILO</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="table-rows">
+                                <td id="l6">Comprobados</td>
+                                <td>
+                                    <input type="checkbox" id="cteped4" name="tabs4" data-ng-model="modelo.ComprobadosCtePed" disabled/>
+                                    <label for="cteped4"><span><div></div></span></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="ctefact4" name="tabs4" data-ng-model="modelo.ComprobadosCeteFact" disabled/>
+                                    <label for="ctefact4"><span><div></div></span></label>
+                                </td>
+                                <td class=" ">
+                                    <select class="form-control facsame" name="state" id="in18" disabled data-ng-model="modelo.ComprobadosEmpresaFactura">
+                                        <option value="">Seleccionar</option>
+                                        <option value="ELI">ELI</option>
+                                        <option value="ECONOMIZER">ECONOMIZER</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="tag-text">Cta AME: Para la factura de ELI a la Americana utilizar el TC del:</div>
+                        <div class="form-group  ">
+                            <select class="form-control facsame" name="state" id="in22" data-ng-model="modelo.CtaAMEFactura" disabled>
+                                <option value="">Seleccionar</option>
+                                <option value="DOF">DOF</option>
+                                <option value="Pedimento">Pedimento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="tag-text">Cta AME/expedida a:</div>
+                        <div class="form-group  ">
+                            <select class="form-control facsame" name="state" id="in23" data-ng-model="modelo.CtaAMEExpedida" disabled>
+                                <option value="">Seleccionar</option>
+                                <option value="ClientePedimento">Cliente Pedimento</option>
+                                <option value="ClienteFactura">Cliente Factura</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="tag-text">Cta AME/se cobra en:</div>
+                        <div class="form-group  ">
+                            <select class="form-control facsame" name="state" id="in24" data-ng-model="modelo.CtaAMECobra" disabled>
+                                <option value="">Seleccionar</option>
+                                <option value="DirectoUSA">Directo USA</option>
+                                <option value="Rendición">Rendición</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="tag-text">Compr/Expedidor por:</div>
+                        <div class="form-group  ">
+                            <select class="form-control facsame" name="state" id="in25" data-ng-model="modelo.CtaAMEExpedidor" disabled>
+                                <option value="">Seleccionar</option>
+                                <option value="ClientePedimento">Cliente Pedimento</option>
+                                <option value="ClienteFactura">Cliente Factura</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6  ">
+                        <div class="form-group text-center" style="margin-top: 25px;">
+                            <input type="checkbox" id="peca" name="peca" data-ng-model="modelo.ImpuestoPeca" disabled/>
+                            <label for="peca"><span><div></div></span> Impuestos por PECA</label>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12" style="padding:0px;" data-ng-show="modelo.ImpuestoPeca">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="tag-text">Banco:</div>
+                                <div class="form-group  ">
+                                    <input type="text" class="form-control" id="in44" data-ng-model="modelo.Banco" disabled/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="tag-text">ID:</div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="in45" data-ng-model="modelo.BancoId" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
